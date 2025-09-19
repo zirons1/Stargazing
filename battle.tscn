@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmerkhi3i8suv"]
+
+[ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player.tscn" id="1_b1kuy"]
+[ext_resource type="Script" path="res://battle.gd" id="1_m0edu"]
+[ext_resource type="PackedScene" uid="uid://bk3ahoq2hkg74" path="res://shooting_star.tscn" id="2_4frnl"]
+
+[sub_resource type="Gradient" id="Gradient_kndlj"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kn2w7"]
+gradient = SubResource("Gradient_kndlj")
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_m0edu")
+shooting_star = ExtResource("2_4frnl")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(571, 324.75)
+scale = Vector2(4.64844, 674.5)
+texture = SubResource("GradientTexture1D_kn2w7")
+
+[node name="Player" parent="." instance=ExtResource("1_b1kuy")]

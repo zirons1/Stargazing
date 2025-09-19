@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk3ahoq2hkg74"]
+
+[ext_resource type="Texture2D" uid="uid://bcum8vvp4cu4p" path="res://art/shooting_star1.png" id="1_2fpi1"]
+[ext_resource type="Script" path="res://shooting_star.gd" id="1_i76lm"]
+[ext_resource type="Texture2D" uid="uid://cu8bgtbpmmrpj" path="res://art/shooting_star2.png" id="2_33tba"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3vhq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2fpi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_33tba")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7hnk"]
+size = Vector2(76, 74)
+
+[node name="ShootingStar" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_i76lm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o3vhq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-24, -4)
+shape = SubResource("RectangleShape2D_m7hnk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
