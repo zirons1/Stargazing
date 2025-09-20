@@ -44,7 +44,7 @@ rotation = 4.71239
 scale = Vector2(0.173868, 0.176972)
 sprite_frames = SubResource("SpriteFrames_o3vhq")
 animation = &"paper"
-frame_progress = 0.306149
+frame_progress = 0.0628254
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-18, 2)

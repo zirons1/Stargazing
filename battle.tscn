@@ -16,6 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://b54tpr2dx30w1" path="res://art/paper/full_heart2.png" id="12_sfj2q"]
 [ext_resource type="Texture2D" uid="uid://ssl8qmb2vdgh" path="res://art/paper/empty_heart1.png" id="13_xwnkw"]
 [ext_resource type="Texture2D" uid="uid://c8oknryhcg8no" path="res://art/paper/empty_heart2.png" id="14_5dx5k"]
+[ext_resource type="Texture2D" uid="uid://5i17bxha14vv" path="res://art/paper/health_barx.png" id="16_j0da5"]
+[ext_resource type="Texture2D" uid="uid://dyyr0wkfk5ot1" path="res://art/paper/health_barxx.png" id="18_h3slm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tif73"]
+size = Vector2(1287, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn3u4"]
+size = Vector2(22.9999, 777)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i08lj"]
 animations = [{
@@ -64,18 +72,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y65yh"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5o4et"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld2nh"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmywx"]
-bg_color = Color(0, 0, 0, 1)
-
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_m0edu")
 shooting_star = ExtResource("2_4frnl")
@@ -90,10 +86,42 @@ position = Vector2(577.5, 325)
 scale = Vector2(0.511083, 0.437061)
 texture = ExtResource("4_ewjf8")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Background"]
+position = Vector2(-1169.09, -853.428)
+scale = Vector2(1.95663, 2.28801)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(586, -10)
+shape = SubResource("RectangleShape2D_tif73")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Background"]
+position = Vector2(-1157.35, 915.205)
+scale = Vector2(1.95663, 2.28801)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D2"]
+position = Vector2(586, -10)
+shape = SubResource("RectangleShape2D_tif73")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Background"]
+position = Vector2(-1169.09, -853.428)
+scale = Vector2(1.95663, 2.28801)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D3"]
+position = Vector2(-42.0001, 374)
+shape = SubResource("RectangleShape2D_wn3u4")
+
 [node name="Sun" parent="." instance=ExtResource("10_r1il5")]
 
 [node name="Player" parent="." instance=ExtResource("1_b1kuy")]
 position = Vector2(92, 301)
+collision_mask = 16
+can_dash = true
 
 [node name="StatsUI" type="CanvasLayer" parent="."]
 
@@ -120,31 +148,30 @@ scale = Vector2(0.398438, 0.398438)
 sprite_frames = SubResource("SpriteFrames_i08lj")
 animation = &"default_paper"
 
-[node name="EnemyHealth" type="ProgressBar" parent="StatsUI"]
-offset_left = 1122.0
+[node name="EnemyHealth" type="TextureProgressBar" parent="StatsUI"]
+offset_left = 1120.0
 offset_top = 41.0
-offset_right = 1136.0
-offset_bottom = 340.0
-theme_override_styles/background = SubResource("StyleBoxFlat_y65yh")
-theme_override_styles/fill = SubResource("StyleBoxFlat_5o4et")
+offset_right = 2414.0
+offset_bottom = 107.0
+rotation = 1.5708
+scale = Vector2(0.22, 0.22)
 max_value = 1.0
-step = 1.0
-fill_mode = 3
-show_percentage = false
+value = 1.0
+fill_mode = 1
+texture_progress = ExtResource("16_j0da5")
 script = ExtResource("9_q28c3")
 report = true
 max_health = 200
 
-[node name="EnemyHealth2" type="ProgressBar" parent="StatsUI"]
-offset_left = 1122.0
-offset_top = 331.0
-offset_right = 1136.0
-offset_bottom = 630.0
-theme_override_styles/background = SubResource("StyleBoxFlat_ld2nh")
-theme_override_styles/fill = SubResource("StyleBoxFlat_hmywx")
+[node name="EnemyHealth2" type="TextureProgressBar" parent="StatsUI"]
+offset_left = 1120.0
+offset_top = 325.0
+offset_right = 2414.0
+offset_bottom = 391.0
+rotation = 1.5708
+scale = Vector2(0.22, 0.22)
 max_value = 1.0
-step = 1.0
-fill_mode = 2
-show_percentage = false
+value = 1.0
+texture_progress = ExtResource("18_h3slm")
 script = ExtResource("9_q28c3")
 max_health = 200

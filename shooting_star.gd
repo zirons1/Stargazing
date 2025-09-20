@@ -10,6 +10,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position.x += velocity.x
 	position.y += velocity.y
+	
+	if position.x <= -50:
+		queue_free()
 
 func _on_body_entered(body: Node) -> void:
 	if body is not Player:
@@ -21,5 +24,3 @@ func _on_body_entered(body: Node) -> void:
 	
 	Events.player_hit.emit()
 	queue_free()
-
-#func _on_VisibilityNotifier2D_screen_exited():
