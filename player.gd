@@ -1,13 +1,15 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+@export var laser_scene : PackedScene
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
-	animated_sprite_2d.play()
+	animated_sprite_2d.play("paper")
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("player_down") or Input.is_action_pressed("player_down"):

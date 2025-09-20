@@ -1,25 +1,150 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmerkhi3i8suv"]
+[gd_scene load_steps=22 format=3 uid="uid://dmerkhi3i8suv"]
 
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player.tscn" id="1_b1kuy"]
 [ext_resource type="Script" path="res://battle.gd" id="1_m0edu"]
 [ext_resource type="PackedScene" uid="uid://bk3ahoq2hkg74" path="res://shooting_star.tscn" id="2_4frnl"]
+[ext_resource type="PackedScene" uid="uid://bobdc5c764hwy" path="res://laser.tscn" id="3_5f2td"]
+[ext_resource type="Texture2D" uid="uid://6sfk6jcsbotw" path="res://art/full_heart1.png" id="4_5jshq"]
+[ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="4_ewjf8"]
+[ext_resource type="Script" path="res://health_bar.gd" id="4_t7uxy"]
+[ext_resource type="Texture2D" uid="uid://cjw2dnbh35s2j" path="res://art/full_heart2.png" id="5_2pjnu"]
+[ext_resource type="Texture2D" uid="uid://c2dtumgchfrvb" path="res://art/empty_heart1.png" id="6_2au1w"]
+[ext_resource type="Texture2D" uid="uid://basr0ufeaa4k8" path="res://art/empty_heart2.png" id="7_h3vap"]
+[ext_resource type="Script" path="res://enemy_health.gd" id="9_q28c3"]
+[ext_resource type="PackedScene" uid="uid://dksi14b5vihqv" path="res://sun.tscn" id="10_r1il5"]
+[ext_resource type="Texture2D" uid="uid://blcis751j8o7k" path="res://art/paper/full_heart1.png" id="11_h0l7s"]
+[ext_resource type="Texture2D" uid="uid://b54tpr2dx30w1" path="res://art/paper/full_heart2.png" id="12_sfj2q"]
+[ext_resource type="Texture2D" uid="uid://ssl8qmb2vdgh" path="res://art/paper/empty_heart1.png" id="13_xwnkw"]
+[ext_resource type="Texture2D" uid="uid://c8oknryhcg8no" path="res://art/paper/empty_heart2.png" id="14_5dx5k"]
 
-[sub_resource type="Gradient" id="Gradient_kndlj"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_i08lj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5jshq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2pjnu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_h0l7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sfj2q")
+}],
+"loop": true,
+"name": &"default_paper",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_2au1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h3vap")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_xwnkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5dx5k")
+}],
+"loop": true,
+"name": &"empty_paper",
+"speed": 5.0
+}]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_kn2w7"]
-gradient = SubResource("Gradient_kndlj")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y65yh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5o4et"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld2nh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmywx"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_m0edu")
 shooting_star = ExtResource("2_4frnl")
+laser_scene = ExtResource("3_5f2td")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
 autostart = true
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(571, 324.75)
-scale = Vector2(4.64844, 674.5)
-texture = SubResource("GradientTexture1D_kn2w7")
+position = Vector2(577.5, 325)
+scale = Vector2(0.511083, 0.437061)
+texture = ExtResource("4_ewjf8")
+
+[node name="Sun" parent="." instance=ExtResource("10_r1il5")]
 
 [node name="Player" parent="." instance=ExtResource("1_b1kuy")]
+position = Vector2(92, 301)
+
+[node name="StatsUI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="HBoxContainer" parent="StatsUI"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_t7uxy")
+
+[node name="Heart1" type="AnimatedSprite2D" parent="StatsUI/HealthBar"]
+position = Vector2(59, 47)
+scale = Vector2(0.398438, 0.398438)
+sprite_frames = SubResource("SpriteFrames_i08lj")
+animation = &"default_paper"
+
+[node name="Heart2" type="AnimatedSprite2D" parent="StatsUI/HealthBar"]
+position = Vector2(172, 49)
+scale = Vector2(0.398438, 0.398438)
+sprite_frames = SubResource("SpriteFrames_i08lj")
+animation = &"default_paper"
+
+[node name="Heart3" type="AnimatedSprite2D" parent="StatsUI/HealthBar"]
+position = Vector2(285, 49)
+scale = Vector2(0.398438, 0.398438)
+sprite_frames = SubResource("SpriteFrames_i08lj")
+animation = &"default_paper"
+
+[node name="EnemyHealth" type="ProgressBar" parent="StatsUI"]
+offset_left = 1122.0
+offset_top = 41.0
+offset_right = 1136.0
+offset_bottom = 340.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y65yh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5o4et")
+max_value = 1.0
+step = 1.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("9_q28c3")
+report = true
+max_health = 200
+
+[node name="EnemyHealth2" type="ProgressBar" parent="StatsUI"]
+offset_left = 1122.0
+offset_top = 331.0
+offset_right = 1136.0
+offset_bottom = 630.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ld2nh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hmywx")
+max_value = 1.0
+step = 1.0
+fill_mode = 2
+show_percentage = false
+script = ExtResource("9_q28c3")
+max_health = 200
