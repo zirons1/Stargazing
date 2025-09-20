@@ -1,7 +1,7 @@
 class_name StatsUI
 extends CanvasLayer
 
-@onready var health_bar: HBoxContainer = $HealthBar
+@onready var player_health: PlayerHealth = $HealthBar
 @onready var enemy_health: EnemyHealth = $EnemyHealth
 
 func set_enemy_max(max : int) -> void:

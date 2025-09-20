@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @onready var timer: Timer = $Timer
 
+@export var health : int
+
 func _ready() -> void:
 	animated_sprite_2d.play("paper")
 

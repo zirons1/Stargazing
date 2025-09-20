@@ -15,7 +15,7 @@ var flip : int = 1
 func _ready() -> void:
 	Events.health_zero.connect(game_over)
 	Events.star_dead.connect(victory)
-	stats_ui.set_enemy_max(100)
+	stats_ui.set_enemy_max(sun.health)
 	sun.timer.timeout.connect(shoot_star)
 
 func shoot_star() -> void:

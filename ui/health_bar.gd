@@ -1,3 +1,4 @@
+class_name PlayerHealth
 extends HBoxContainer
 
 @onready var heart_1: AnimatedSprite2D = $Heart1
@@ -15,6 +16,25 @@ func _ready() -> void:
 	heart_1.play(heart_anim)
 	heart_2.play(heart_anim)
 	heart_3.play(heart_anim)
+
+func set_health(health : int) -> void:
+	if health > 3:
+		health = 3
+	elif health <= 0:
+		Events.health_zero.emit()
+	
+	if health == 3:
+		h3 = true
+		h2 = true
+		h1 = true
+	elif health == 2:
+		h3 = false
+		h2 = true
+		h1 = true
+	if health == 1:
+		h3 = false
+		h2 = false
+		h1 = true
 
 func _on_player_hit() -> void:
 	if h3:

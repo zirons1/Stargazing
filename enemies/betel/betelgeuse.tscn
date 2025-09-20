@@ -40,6 +40,7 @@ radius = 571.022
 [node name="Betelgeuse" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_a5t1h")
+health = 200
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
