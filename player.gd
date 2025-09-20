@@ -5,10 +5,13 @@ extends CharacterBody2D
 
 @export var laser_scene : PackedScene
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var iframes := false
+
+const IFRAMES_SECS := 1.5
+const SPEED := 300.0
 
 func _ready() -> void:
+	Events.player_hit.connect(_on_player_hit)
 	animated_sprite_2d.play("paper")
 
 func _physics_process(delta: float) -> void:
@@ -31,3 +34,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 
 	move_and_slide()
+
+func _on_player_hit() -> void:
+	iframes = true
+	animated_sprite_2d.play("iframes")
+	get_tree().create_timer(1.5).timeout.connect(
+		func(): 
+			animated_sprite_2d.play("paper")
+			iframes = false
+	)

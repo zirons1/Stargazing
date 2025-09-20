@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnx8qqobenu6d"]
+[gd_scene load_steps=11 format=3 uid="uid://cnx8qqobenu6d"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_oj7h7"]
 [ext_resource type="Texture2D" uid="uid://bev3uw6qdt3vm" path="res://art/rocket1.png" id="1_q3r7l"]
 [ext_resource type="PackedScene" uid="uid://bobdc5c764hwy" path="res://laser.tscn" id="2_o7lr4"]
 [ext_resource type="Texture2D" uid="uid://vjtcjyu0re8h" path="res://art/rocket2.png" id="2_uyxkc"]
 [ext_resource type="Texture2D" uid="uid://bnspcqx80s33h" path="res://art/paper/moon1.png" id="5_d0upx"]
+[ext_resource type="Texture2D" uid="uid://bic6ikeo44j2n" path="res://art/paper/iframe_moon1.png" id="5_g72ff"]
 [ext_resource type="Texture2D" uid="uid://de00c0kgbhyut" path="res://art/paper/moon2.png" id="6_m5xu8"]
+[ext_resource type="Texture2D" uid="uid://e403hsehoyp7" path="res://art/paper/iframes_moon2.png" id="7_g0qi0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nx2j5"]
 animations = [{
@@ -18,6 +20,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_g72ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d0upx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g0qi0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m5xu8")
+}],
+"loop": true,
+"name": &"iframes",
 "speed": 5.0
 }, {
 "frames": [{
@@ -45,8 +64,7 @@ laser_scene = ExtResource("2_o7lr4")
 position = Vector2(32, 14)
 scale = Vector2(0.4, 0.403)
 sprite_frames = SubResource("SpriteFrames_nx2j5")
-animation = &"paper"
-frame_progress = 0.534242
+animation = &"iframes"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(30, 18)

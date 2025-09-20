@@ -12,6 +12,13 @@ func _physics_process(delta: float) -> void:
 	position.y += velocity.y
 
 func _on_body_entered(body: Node) -> void:
+	if body is not Player:
+		return
+	
+	var player = body as Player
+	if player.iframes:
+		return
+	
 	Events.player_hit.emit()
 	queue_free()
 
