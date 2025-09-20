@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://vfogplvhc6rr"]
 
 [ext_resource type="Script" path="res://enemies/betel/betelgeuse.gd" id="1_a5t1h"]
-[ext_resource type="Texture2D" uid="uid://ckjnlrdr4qhbb" path="res://art/sun1.png" id="1_nnpuy"]
-[ext_resource type="Texture2D" uid="uid://bgvsmew55jdui" path="res://art/sun2.png" id="2_c4kk3"]
+[ext_resource type="Texture2D" uid="uid://ckjnlrdr4qhbb" path="res://art/old/sun1.png" id="1_nnpuy"]
+[ext_resource type="Texture2D" uid="uid://bgvsmew55jdui" path="res://art/old/sun2.png" id="2_c4kk3"]
 [ext_resource type="Texture2D" uid="uid://ob7swnrnsdem" path="res://art/paper/betel1.png" id="3_vbc5n"]
 [ext_resource type="Texture2D" uid="uid://da1lycjwpunnf" path="res://art/paper/betel2.png" id="4_m6egi"]
 

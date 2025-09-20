@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6crpoalhly3g"]
 
 [ext_resource type="Script" path="res://enemies/betel/solar_flare.gd" id="1_u3d1s"]
-[ext_resource type="Texture2D" uid="uid://bcum8vvp4cu4p" path="res://art/shooting_star1.png" id="2_xuidy"]
-[ext_resource type="Texture2D" uid="uid://cu8bgtbpmmrpj" path="res://art/shooting_star2.png" id="3_igh1e"]
+[ext_resource type="Texture2D" uid="uid://bcum8vvp4cu4p" path="res://art/old/shooting_star1.png" id="2_xuidy"]
+[ext_resource type="Texture2D" uid="uid://cu8bgtbpmmrpj" path="res://art/old/shooting_star2.png" id="3_igh1e"]
 [ext_resource type="Texture2D" uid="uid://b10evigxxaev3" path="res://art/paper/flare1.png" id="4_m3sg5"]
 [ext_resource type="Texture2D" uid="uid://eb5uiuqwb05y" path="res://art/paper/flare2.png" id="5_h3mld"]
 
@@ -40,7 +40,6 @@ position = Vector2(0, -1)
 scale = Vector2(0.178439, 0.274045)
 sprite_frames = SubResource("SpriteFrames_wrbbs")
 animation = &"paper"
-frame_progress = 0.543356
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-1, 0)

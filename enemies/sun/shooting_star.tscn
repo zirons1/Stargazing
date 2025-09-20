@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bk3ahoq2hkg74"]
 
-[ext_resource type="Texture2D" uid="uid://bcum8vvp4cu4p" path="res://art/shooting_star1.png" id="1_2fpi1"]
+[ext_resource type="Texture2D" uid="uid://bcum8vvp4cu4p" path="res://art/old/shooting_star1.png" id="1_2fpi1"]
 [ext_resource type="Script" path="res://enemies/sun/shooting_star.gd" id="1_i76lm"]
-[ext_resource type="Texture2D" uid="uid://cu8bgtbpmmrpj" path="res://art/shooting_star2.png" id="2_33tba"]
+[ext_resource type="Texture2D" uid="uid://cu8bgtbpmmrpj" path="res://art/old/shooting_star2.png" id="2_33tba"]
 [ext_resource type="Texture2D" uid="uid://dvxedi6u04wvv" path="res://art/paper/shooting_star1.png" id="4_bka4v"]
 [ext_resource type="Texture2D" uid="uid://c5fi0jffobhnc" path="res://art/paper/shooting_star2.png" id="5_jh5nu"]
 
