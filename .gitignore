@@ -3,3 +3,6 @@
 /android/
 
  *.psd
+*.png.import
+
+/art/scans
