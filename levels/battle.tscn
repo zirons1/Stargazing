@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmerkhi3i8suv"]
+
+[ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="1_b1kuy"]
+[ext_resource type="Script" path="res://levels/battle.gd" id="1_m0edu"]
+[ext_resource type="PackedScene" uid="uid://bk3ahoq2hkg74" path="res://enemies/sun/shooting_star.tscn" id="2_4frnl"]
+[ext_resource type="PackedScene" uid="uid://bobdc5c764hwy" path="res://player/laser.tscn" id="3_5f2td"]
+[ext_resource type="PackedScene" uid="uid://b1yc1xt8x0lai" path="res://ui/background.tscn" id="4_b1lsa"]
+[ext_resource type="PackedScene" uid="uid://bfekoufulm8oc" path="res://ui/stats_ui.tscn" id="7_y8y0n"]
+[ext_resource type="PackedScene" uid="uid://dksi14b5vihqv" path="res://enemies/sun/sun.tscn" id="10_r1il5"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_m0edu")
+shooting_star = ExtResource("2_4frnl")
+laser_scene = ExtResource("3_5f2td")
+
+[node name="Background" parent="." instance=ExtResource("4_b1lsa")]
+position = Vector2(576, 323)
+scale = Vector2(0.501447, 0.431613)
+
+[node name="Sun" parent="." instance=ExtResource("10_r1il5")]
+
+[node name="Player" parent="." instance=ExtResource("1_b1kuy")]
+position = Vector2(92, 301)
+collision_mask = 16
+can_dash = true
+
+[node name="StatsUI" parent="." instance=ExtResource("7_y8y0n")]

@@ -2,9 +2,9 @@ extends Node2D
 
 @export var shooting_star: PackedScene
 @export var laser_scene: PackedScene
-@onready var timer: Timer = $Timer
 
 @onready var player: CharacterBody2D = $Player
+@onready var sun: Sun = $Sun
 
 const SHOOTING_STAR_SPEED : int = -8
 
@@ -13,9 +13,9 @@ var flip : int = 1
 func _ready() -> void:
 	Events.health_zero.connect(game_over)
 	Events.star_dead.connect(victory)
-	timer.timeout.connect(_on_timeout)
+	sun.timer.timeout.connect(shoot_star)
 
-func _on_timeout() -> void:
+func shoot_star() -> void:
 	var star = shooting_star.instantiate()
 
 	var x := randi_range(48, 600)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c100vt002alfw" path="res://art/laser1.png" id="1_wyrov"]
 [ext_resource type="Texture2D" uid="uid://dn04u7yv7ne5q" path="res://art/laser2.png" id="2_sjfs2"]
-[ext_resource type="Script" path="res://laser.gd" id="3_6qunt"]
+[ext_resource type="Script" path="res://player/laser.gd" id="3_6qunt"]
 [ext_resource type="Texture2D" uid="uid://ju7qt2yejnce" path="res://art/paper/laser1.png" id="4_c4xen"]
 [ext_resource type="Texture2D" uid="uid://jjikgm6ksuy5" path="res://art/paper/laser2.png" id="5_hax4m"]
 

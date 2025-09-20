@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dksi14b5vihqv"]
 
 [ext_resource type="Texture2D" uid="uid://ckjnlrdr4qhbb" path="res://art/sun1.png" id="1_m2htp"]
-[ext_resource type="Script" path="res://sun.gd" id="1_q0xt7"]
+[ext_resource type="Script" path="res://enemies/sun/sun.gd" id="1_q0xt7"]
 [ext_resource type="Texture2D" uid="uid://bgvsmew55jdui" path="res://art/sun2.png" id="2_irfbv"]
 [ext_resource type="Texture2D" uid="uid://ctyqa7eo7m7xb" path="res://art/paper/sun1.png" id="4_8roo1"]
 [ext_resource type="Texture2D" uid="uid://dbkxfnchte4tr" path="res://art/paper/sun2.png" id="5_r3uy7"]
@@ -40,6 +40,10 @@ radius = 364.012
 [node name="Sun" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_q0xt7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1075, 321)

@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var timer: Timer = $Timer
+
 func _ready() -> void:
 	animated_sprite_2d.play("paper")
 

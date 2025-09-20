@@ -10,6 +10,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position.x += velocity.x
 	position.y += velocity.y
+	
+	if position.x >= 1300:
+		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	#print("sun hit laser")
