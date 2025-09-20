@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6crpoalhly3g"]
+
+[ext_resource type="Script" path="res://enemies/betel/solar_flare.gd" id="1_u3d1s"]
+[ext_resource type="Texture2D" uid="uid://bcum8vvp4cu4p" path="res://art/shooting_star1.png" id="2_xuidy"]
+[ext_resource type="Texture2D" uid="uid://cu8bgtbpmmrpj" path="res://art/shooting_star2.png" id="3_igh1e"]
+[ext_resource type="Texture2D" uid="uid://b10evigxxaev3" path="res://art/paper/flare1.png" id="4_m3sg5"]
+[ext_resource type="Texture2D" uid="uid://eb5uiuqwb05y" path="res://art/paper/flare2.png" id="5_h3mld"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wrbbs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xuidy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_igh1e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_m3sg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h3mld")
+}],
+"loop": true,
+"name": &"paper",
+"speed": 5.0
+}]
+
+[node name="SolarFlare" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_u3d1s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.178439, 0.274045)
+sprite_frames = SubResource("SpriteFrames_wrbbs")
+animation = &"paper"
+frame_progress = 0.543356
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.180297, 0.180297)
+polygon = PackedVector2Array(-94.2887, 360.515, 16.6392, 488.082, 216.309, 443.711, -44.3711, 288.412, -116.474, 0, -27.732, -371.608, 199.67, -421.526, 49.9175, -543.546, -105.381, -393.794, -188.577, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

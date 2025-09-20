@@ -6,6 +6,8 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var sun: Sun = $Sun
 
+@onready var stats_ui: StatsUI = $StatsUI
+
 const SHOOTING_STAR_SPEED : int = -8
 
 var flip : int = 1
@@ -13,6 +15,7 @@ var flip : int = 1
 func _ready() -> void:
 	Events.health_zero.connect(game_over)
 	Events.star_dead.connect(victory)
+	stats_ui.set_enemy_max(100)
 	sun.timer.timeout.connect(shoot_star)
 
 func shoot_star() -> void:

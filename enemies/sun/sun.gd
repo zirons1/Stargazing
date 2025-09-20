@@ -9,5 +9,5 @@ func _ready() -> void:
 	animated_sprite_2d.play("paper")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("player_hit sun")
+	#print("player_hit sun")
 	Events.player_hit.emit()

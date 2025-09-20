@@ -1,5 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bfekoufulm8oc"]
 
+[ext_resource type="Script" path="res://ui/stats_ui.gd" id="1_e4s7t"]
 [ext_resource type="Script" path="res://ui/health_bar.gd" id="1_nh6b7"]
 [ext_resource type="Texture2D" uid="uid://6sfk6jcsbotw" path="res://art/full_heart1.png" id="2_ss0f1"]
 [ext_resource type="Texture2D" uid="uid://cjw2dnbh35s2j" path="res://art/full_heart2.png" id="3_6u8tj"]
@@ -9,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://basr0ufeaa4k8" path="res://art/empty_heart2.png" id="7_j0pfv"]
 [ext_resource type="Texture2D" uid="uid://ssl8qmb2vdgh" path="res://art/paper/empty_heart1.png" id="8_456jm"]
 [ext_resource type="Texture2D" uid="uid://c8oknryhcg8no" path="res://art/paper/empty_heart2.png" id="9_7aq7c"]
-[ext_resource type="Texture2D" uid="uid://5i17bxha14vv" path="res://art/paper/health_bar1.png" id="10_ls7u4"]
 [ext_resource type="Script" path="res://ui/enemy_health.gd" id="11_t0oh7"]
 [ext_resource type="Texture2D" uid="uid://dt0g6k1ij1ect" path="res://art/paper/health_bar2.png" id="12_kp2vy"]
 
@@ -61,6 +61,7 @@ animations = [{
 }]
 
 [node name="StatsUI" type="CanvasLayer"]
+script = ExtResource("1_e4s7t")
 
 [node name="HealthBar" type="HBoxContainer" parent="."]
 offset_right = 40.0
@@ -86,29 +87,16 @@ sprite_frames = SubResource("SpriteFrames_i08lj")
 animation = &"default_paper"
 
 [node name="EnemyHealth" type="TextureProgressBar" parent="."]
-offset_left = 1120.0
-offset_top = 41.0
-offset_right = 2414.0
-offset_bottom = 107.0
-rotation = 1.5708
-scale = Vector2(0.22, 0.22)
+offset_left = 1103.0
+offset_top = 36.0
+offset_right = 2397.0
+offset_bottom = 59.0
+rotation = 3.14159
+scale = Vector2(0.57, 0.57)
 max_value = 1.0
 value = 1.0
 fill_mode = 1
-texture_progress = ExtResource("10_ls7u4")
-script = ExtResource("11_t0oh7")
-report = true
-max_health = 200
-
-[node name="EnemyHealth2" type="TextureProgressBar" parent="."]
-offset_left = 1120.0
-offset_top = 325.0
-offset_right = 2414.0
-offset_bottom = 391.0
-rotation = 1.5708
-scale = Vector2(0.22, 0.22)
-max_value = 1.0
-value = 1.0
 texture_progress = ExtResource("12_kp2vy")
 script = ExtResource("11_t0oh7")
-max_health = 200
+report = true
+max_health = 100

@@ -1,3 +1,4 @@
+class_name EnemyHealth
 extends TextureProgressBar
 
 @export var report : bool
@@ -8,6 +9,10 @@ func _ready() -> void:
 	max_value = max_health
 	value = max_health
 	Events.star_hit.connect(_on_star_hit)
+
+func reset_to_max() -> void:
+	max_value = max_health
+	value = max_health
 
 func _on_star_hit() -> void:
 	value -= 1
