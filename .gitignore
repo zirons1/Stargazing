@@ -2,7 +2,7 @@
 .godot/
 /android/
 
- *.psd
+*.psd
 *.png.import
 
 /art/scans
