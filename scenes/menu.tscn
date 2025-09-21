@@ -1,13 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwx4wns5sdujl"]
+[gd_scene load_steps=17 format=3 uid="uid://cwx4wns5sdujl"]
 
 [ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="1_04a0f"]
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_p1lvd"]
 [ext_resource type="PackedScene" uid="uid://dmerkhi3i8suv" path="res://levels/battle.tscn" id="2_w3as5"]
 [ext_resource type="PackedScene" uid="uid://cgb4ya21oaa5l" path="res://levels/betel_battle.tscn" id="3_5nj37"]
+[ext_resource type="PackedScene" uid="uid://ciotrq6yyp3pr" path="res://levels/crab_battle.tscn" id="4_3vt5a"]
 [ext_resource type="Texture2D" uid="uid://bh6q6o5tk450s" path="res://art/paper/sun_menu1.png" id="5_ucy0x"]
 [ext_resource type="Texture2D" uid="uid://uhdpe6h743ug" path="res://art/paper/sun_menu2.png" id="6_70lcm"]
 [ext_resource type="Texture2D" uid="uid://ddwdoayhl54md" path="res://art/paper/betel_menu1.png" id="7_b1rl5"]
 [ext_resource type="Texture2D" uid="uid://dad0rpjt3mk1p" path="res://art/paper/betel_menu2.png" id="8_yv7o7"]
+[ext_resource type="Texture2D" uid="uid://c6awuww8u7nmp" path="res://art/paper/crab_menu1.png" id="9_hp68c"]
+[ext_resource type="Texture2D" uid="uid://bsdodi3fhi37f" path="res://art/paper/crab_menu2.png" id="10_83gxx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5phy"]
 
@@ -41,10 +44,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdea3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_hp68c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_83gxx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_p1lvd")
 sun_battle = ExtResource("2_w3as5")
 betelguese_battle = ExtResource("3_5nj37")
+crab_battle = ExtResource("4_3vt5a")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(577.868, 324.875)
@@ -75,5 +93,18 @@ position = Vector2(812, 230)
 scale = Vector2(0.414894, 0.414894)
 sprite_frames = SubResource("SpriteFrames_dy8k0")
 
+[node name="Crab" type="Panel" parent="."]
+offset_left = 214.0
+offset_top = 324.0
+offset_right = 533.0
+offset_bottom = 542.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_17ynn")
+
+[node name="CrabMenu" type="AnimatedSprite2D" parent="."]
+position = Vector2(374, 438)
+scale = Vector2(0.414894, 0.414894)
+sprite_frames = SubResource("SpriteFrames_kdea3")
+
 [connection signal="gui_input" from="TheSun" to="." method="_on_sun_panel_gui_input"]
 [connection signal="gui_input" from="Betelguese" to="." method="_on_betelguese_gui_input"]
+[connection signal="gui_input" from="Crab" to="." method="_on_crab_gui_input"]
