@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwx4wns5sdujl"]
+
+[ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="1_04a0f"]
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_p1lvd"]
+[ext_resource type="PackedScene" uid="uid://dmerkhi3i8suv" path="res://levels/battle.tscn" id="2_w3as5"]
+[ext_resource type="PackedScene" uid="uid://cgb4ya21oaa5l" path="res://levels/betel_battle.tscn" id="3_5nj37"]
+[ext_resource type="Texture2D" uid="uid://5i17bxha14vv" path="res://art/paper/health_bar1.png" id="3_pyjco"]
+[ext_resource type="Texture2D" uid="uid://bh6q6o5tk450s" path="res://art/paper/sun_menu1.png" id="5_ucy0x"]
+[ext_resource type="Texture2D" uid="uid://uhdpe6h743ug" path="res://art/paper/sun_menu2.png" id="6_70lcm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5phy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nftcm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ucy0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_70lcm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kwwr"]
+texture = ExtResource("3_pyjco")
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_p1lvd")
+sun_battle = ExtResource("2_w3as5")
+betelguese_battle = ExtResource("3_5nj37")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577.868, 324.875)
+scale = Vector2(0.511622, 0.450958)
+texture = ExtResource("1_04a0f")
+
+[node name="TheSun" type="Panel" parent="."]
+offset_left = 174.0
+offset_top = 90.0
+offset_right = 404.0
+offset_bottom = 204.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_l5phy")
+
+[node name="SunMenu" type="AnimatedSprite2D" parent="."]
+position = Vector2(293, 133)
+scale = Vector2(0.368376, 0.368376)
+sprite_frames = SubResource("SpriteFrames_nftcm")
+
+[node name="Betelguese" type="Panel" parent="."]
+offset_left = 688.0
+offset_top = 150.0
+offset_right = 918.0
+offset_bottom = 264.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1kwwr")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 764.0
+offset_top = 194.0
+offset_right = 826.0
+offset_bottom = 217.0
+text = "Betelgeuse"
+
+[connection signal="gui_input" from="TheSun" to="." method="_on_sun_panel_gui_input"]
+[connection signal="gui_input" from="Betelguese" to="." method="_on_betelguese_gui_input"]

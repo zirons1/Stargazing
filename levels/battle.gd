@@ -28,7 +28,16 @@ func shoot_star() -> void:
 
 	add_child(star)
 	
-	var double : bool = randf() < 0.25
+	var percent_health := stats_ui.enemy_health.value / sun.health
+	
+	var double : bool
+	if percent_health > .70:
+		double = randf() < 0.25
+	elif percent_health > .50:
+		double = randf() < 0.65
+	else: 
+		double = randf() < 0.85
+	
 	if double:
 		var star2 = shooting_star.instantiate()
 
@@ -40,7 +49,15 @@ func shoot_star() -> void:
 
 		add_child(star2)
 	
-		var triple : bool = randf() < 0.25
+	var triple : bool
+	if percent_health > .70:
+		triple = randf() < 0.25
+	elif percent_health > .50:
+		triple = randf() < 0.35
+	else: 
+		triple = randf() < 0.65
+	
+	if triple:
 		if triple:
 			var star3 = shooting_star.instantiate()
 
