@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfekoufulm8oc"]
+[gd_scene load_steps=23 format=3 uid="uid://bfekoufulm8oc"]
 
 [ext_resource type="Script" path="res://ui/stats_ui.gd" id="1_e4s7t"]
 [ext_resource type="Script" path="res://ui/health_bar.gd" id="1_nh6b7"]
@@ -12,6 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://c8oknryhcg8no" path="res://art/paper/empty_heart2.png" id="9_7aq7c"]
 [ext_resource type="Script" path="res://ui/enemy_health.gd" id="11_t0oh7"]
 [ext_resource type="Texture2D" uid="uid://dt0g6k1ij1ect" path="res://art/paper/health_bar2.png" id="12_kp2vy"]
+[ext_resource type="Texture2D" uid="uid://cq7vae3jtw0r7" path="res://art/paper/betel_health1.png" id="13_8mn17"]
+[ext_resource type="Texture2D" uid="uid://1pfr0ann4rxl" path="res://art/paper/sun_health1.png" id="13_rkp6s"]
+[ext_resource type="Texture2D" uid="uid://cke3e4qw04i0h" path="res://art/paper/sun_health2.png" id="14_dver5"]
+[ext_resource type="Texture2D" uid="uid://btildr07t0u23" path="res://art/paper/betel_health2.png" id="14_xgms3"]
+[ext_resource type="Texture2D" uid="uid://c4x364yohcfrt" path="res://art/paper/crab_health1.png" id="17_ejble"]
+[ext_resource type="Texture2D" uid="uid://053h0hiwefsm" path="res://art/paper/crab_health2.png" id="18_y2osf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i08lj"]
 animations = [{
@@ -60,6 +66,48 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_wqi3s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_8mn17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xgms3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cwcin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_rkp6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dver5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qf6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ejble")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_y2osf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="StatsUI" type="CanvasLayer"]
 script = ExtResource("1_e4s7t")
 
@@ -100,3 +148,21 @@ texture_progress = ExtResource("12_kp2vy")
 script = ExtResource("11_t0oh7")
 report = true
 max_health = 100
+
+[node name="BetelgeuseHealthName" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(470, 63)
+scale = Vector2(0.331579, 0.331579)
+sprite_frames = SubResource("SpriteFrames_wqi3s")
+
+[node name="SunHealthName" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(442.104, 62.0112)
+scale = Vector2(0.336605, 0.336605)
+sprite_frames = SubResource("SpriteFrames_cwcin")
+
+[node name="CrabHealthName" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(478, 63)
+scale = Vector2(0.331579, 0.331579)
+sprite_frames = SubResource("SpriteFrames_0qf6d")

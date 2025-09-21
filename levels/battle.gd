@@ -16,6 +16,7 @@ func _ready() -> void:
 	Events.health_zero.connect(game_over)
 	Events.star_dead.connect(victory)
 	stats_ui.set_enemy_max(sun.health)
+	stats_ui.set_health_sprite(0)
 	sun.timer.timeout.connect(shoot_star)
 
 func shoot_star() -> void:
