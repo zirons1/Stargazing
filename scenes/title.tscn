@@ -1,0 +1,137 @@
+[gd_scene load_steps=21 format=3 uid="uid://bd236ln6yyyrb"]
+
+[ext_resource type="Script" path="res://scenes/title.gd" id="1_f31ml"]
+[ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="1_kb722"]
+[ext_resource type="PackedScene" uid="uid://cwx4wns5sdujl" path="res://scenes/menu.tscn" id="2_i4hde"]
+[ext_resource type="Texture2D" uid="uid://lvr0m7ylmrw7" path="res://art/paper/title1.png" id="2_tgyk6"]
+[ext_resource type="Texture2D" uid="uid://dllheawwfeh31" path="res://art/paper/title2.png" id="3_10h7a"]
+[ext_resource type="Texture2D" uid="uid://ctyqa7eo7m7xb" path="res://art/paper/sun1.png" id="5_kfirm"]
+[ext_resource type="Texture2D" uid="uid://dbkxfnchte4tr" path="res://art/paper/sun2.png" id="6_agv6w"]
+[ext_resource type="Texture2D" uid="uid://ob7swnrnsdem" path="res://art/paper/betel1.png" id="7_ttqdf"]
+[ext_resource type="Texture2D" uid="uid://da1lycjwpunnf" path="res://art/paper/betel2.png" id="8_s5q58"]
+[ext_resource type="Texture2D" uid="uid://cep4c8cg63nyn" path="res://art/paper/crab1.png" id="9_xy82h"]
+[ext_resource type="Texture2D" uid="uid://b6kknvgnm6gwe" path="res://art/paper/crab2.png" id="10_bgjng"]
+[ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="11_31veg"]
+[ext_resource type="Texture2D" uid="uid://dt83hliqv7jxj" path="res://art/paper/play1.png" id="12_isd81"]
+[ext_resource type="Texture2D" uid="uid://daqs1xoepx7u0" path="res://art/paper/play2.png" id="13_h87dm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyc4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tgyk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_10h7a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pkkqr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kfirm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_agv6w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jkno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ttqdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s5q58")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1wjc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xy82h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bgjng")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bcf1m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_en3xv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_isd81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_h87dm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_f31ml")
+menu = ExtResource("2_i4hde")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577.868, 324.875)
+scale = Vector2(0.511622, 0.450958)
+texture = ExtResource("1_kb722")
+
+[node name="Title" type="AnimatedSprite2D" parent="."]
+position = Vector2(425, 199)
+scale = Vector2(0.615838, 0.615838)
+sprite_frames = SubResource("SpriteFrames_iyc4p")
+
+[node name="Sun" type="AnimatedSprite2D" parent="."]
+position = Vector2(968.914, 324.635)
+rotation = 1.5708
+scale = Vector2(0.369125, 0.369125)
+sprite_frames = SubResource("SpriteFrames_pkkqr")
+
+[node name="Betel" type="AnimatedSprite2D" parent="."]
+position = Vector2(1018.5, 312.913)
+scale = Vector2(0.340385, 0.340385)
+sprite_frames = SubResource("SpriteFrames_8jkno")
+
+[node name="Crab" type="AnimatedSprite2D" parent="."]
+position = Vector2(1099.75, 309.979)
+scale = Vector2(0.269358, 0.269358)
+sprite_frames = SubResource("SpriteFrames_1wjc8")
+
+[node name="Player" parent="." instance=ExtResource("11_31veg")]
+position = Vector2(629, 548)
+rotation = 5.93412
+disabled = true
+
+[node name="Play" type="Panel" parent="."]
+offset_left = 189.0
+offset_top = 377.0
+offset_right = 449.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bcf1m")
+
+[node name="PlaySprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(319, 432)
+scale = Vector2(0.622026, 0.622026)
+sprite_frames = SubResource("SpriteFrames_en3xv")
+
+[connection signal="gui_input" from="Play" to="." method="_on_play_gui_input"]

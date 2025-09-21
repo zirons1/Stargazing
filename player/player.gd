@@ -7,6 +7,8 @@ extends CharacterBody2D
 
 @export var can_dash : bool
 
+@export var disabled := false
+
 const SPEED := 300.0
 const DASH := 1500.0
 
@@ -26,6 +28,9 @@ func _ready() -> void:
 	animated_sprite_2d.play("paper")
 
 func _physics_process(delta: float) -> void:
+	if disabled:
+		return
+	
 	if down_dashing:
 		velocity.y = DASH
 	elif up_dashing:
