@@ -25,7 +25,7 @@ var up_dashing := false
 
 func _ready() -> void:
 	Events.player_hit.connect(_on_player_hit)
-	animated_sprite_2d.play("paper")
+	animated_sprite_2d.play("angry")
 
 func _physics_process(delta: float) -> void:
 	if disabled:

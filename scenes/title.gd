@@ -13,7 +13,7 @@ func _ready() -> void:
 	sun.play()
 	betel.play()
 	crab.play()
-	play_sprite.play()
+	play_sprite.play("bw")
 
 func _on_play_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):

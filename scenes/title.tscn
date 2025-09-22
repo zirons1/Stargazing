@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bd236ln6yyyrb"]
+[gd_scene load_steps=23 format=3 uid="uid://bd236ln6yyyrb"]
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_f31ml"]
 [ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="1_kb722"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="11_31veg"]
 [ext_resource type="Texture2D" uid="uid://dt83hliqv7jxj" path="res://art/paper/play1.png" id="12_isd81"]
 [ext_resource type="Texture2D" uid="uid://daqs1xoepx7u0" path="res://art/paper/play2.png" id="13_h87dm"]
+[ext_resource type="Texture2D" uid="uid://d5olrdng5dce" path="res://art/paper/play_bw1.png" id="13_lajiy"]
+[ext_resource type="Texture2D" uid="uid://d0kui7ngkelqw" path="res://art/paper/play_bw2.png" id="14_37fki"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iyc4p"]
 animations = [{
@@ -77,6 +79,17 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("13_lajiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_37fki")
+}],
+"loop": true,
+"name": &"bw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_isd81")
 }, {
 "duration": 1.0,
@@ -133,5 +146,6 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_bcf1m")
 position = Vector2(319, 432)
 scale = Vector2(0.622026, 0.622026)
 sprite_frames = SubResource("SpriteFrames_en3xv")
+animation = &"bw"
 
 [connection signal="gui_input" from="Play" to="." method="_on_play_gui_input"]

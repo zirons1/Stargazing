@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnx8qqobenu6d"]
+[gd_scene load_steps=13 format=3 uid="uid://cnx8qqobenu6d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_oj7h7"]
 [ext_resource type="Texture2D" uid="uid://bev3uw6qdt3vm" path="res://art/old/rocket1.png" id="1_q3r7l"]
 [ext_resource type="PackedScene" uid="uid://bobdc5c764hwy" path="res://player/laser.tscn" id="2_o7lr4"]
 [ext_resource type="Texture2D" uid="uid://vjtcjyu0re8h" path="res://art/old/rocket2.png" id="2_uyxkc"]
+[ext_resource type="Texture2D" uid="uid://75ap1q11q7lt" path="res://art/paper/angry_moon1.png" id="3_lasyt"]
+[ext_resource type="Texture2D" uid="uid://cf80eak5a565f" path="res://art/paper/angry_moon2.png" id="4_t1u24"]
 [ext_resource type="Texture2D" uid="uid://bnspcqx80s33h" path="res://art/paper/moon1.png" id="5_d0upx"]
 [ext_resource type="Texture2D" uid="uid://bic6ikeo44j2n" path="res://art/paper/iframe_moon1.png" id="5_g72ff"]
 [ext_resource type="Texture2D" uid="uid://de00c0kgbhyut" path="res://art/paper/moon2.png" id="6_m5xu8"]
@@ -11,6 +13,17 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nx2j5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lasyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t1u24")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_q3r7l")
@@ -27,13 +40,13 @@ animations = [{
 "texture": ExtResource("5_g72ff")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_d0upx")
+"texture": ExtResource("3_lasyt")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_g0qi0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_m5xu8")
+"texture": ExtResource("4_t1u24")
 }],
 "loop": true,
 "name": &"iframes",
