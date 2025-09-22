@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmerkhi3i8suv"]
+[gd_scene load_steps=9 format=3 uid="uid://dmerkhi3i8suv"]
 
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="1_b1kuy"]
 [ext_resource type="Script" path="res://levels/battle.gd" id="1_m0edu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bobdc5c764hwy" path="res://player/laser.tscn" id="3_5f2td"]
 [ext_resource type="PackedScene" uid="uid://b1yc1xt8x0lai" path="res://ui/background.tscn" id="4_b1lsa"]
 [ext_resource type="PackedScene" uid="uid://bfekoufulm8oc" path="res://ui/stats_ui.tscn" id="7_y8y0n"]
+[ext_resource type="PackedScene" uid="uid://i80tol53jjq0" path="res://ui/replay.tscn" id="8_fb05r"]
 [ext_resource type="PackedScene" uid="uid://dksi14b5vihqv" path="res://enemies/sun/sun.tscn" id="10_r1il5"]
 
 [node name="Battle" type="Node2D"]
@@ -25,3 +26,6 @@ collision_mask = 16
 can_dash = true
 
 [node name="StatsUI" parent="." instance=ExtResource("7_y8y0n")]
+
+[node name="Replay" parent="." instance=ExtResource("8_fb05r")]
+visible = false

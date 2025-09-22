@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://i80tol53jjq0"]
+
+[ext_resource type="Texture2D" uid="uid://ws8lrprtf08p" path="res://art/paper/replay1.png" id="1_s45kg"]
+[ext_resource type="Texture2D" uid="uid://dect6valkvo4e" path="res://art/paper/replay2.png" id="2_ecybt"]
+[ext_resource type="Script" path="res://ui/replay.gd" id="3_2ijn8"]
+[ext_resource type="PackedScene" uid="uid://cwx4wns5sdujl" path="res://scenes/menu.tscn" id="4_yicue"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88hic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s45kg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ecybt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ebrcc"]
+
+[node name="Replay" type="AnimatedSprite2D"]
+position = Vector2(578, 338)
+scale = Vector2(0.543601, 0.543601)
+sprite_frames = SubResource("SpriteFrames_88hic")
+script = ExtResource("3_2ijn8")
+menu_scene = ExtResource("4_yicue")
+
+[node name="Again" type="Panel" parent="."]
+offset_left = -182.0
+offset_top = -70.0
+offset_right = 180.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ebrcc")
+
+[node name="Menu" type="Panel" parent="."]
+offset_left = -171.0
+offset_top = 92.0
+offset_right = 173.0
+offset_bottom = 232.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ebrcc")
+
+[connection signal="gui_input" from="Again" to="." method="_on_again_gui_input"]
+[connection signal="gui_input" from="Menu" to="." method="_on_menu_gui_input"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://b1yc1aoo6m4dj"]
+
+[ext_resource type="Script" path="res://enemies/betel/twinkle.gd" id="1_ji2v5"]
+[ext_resource type="Texture2D" uid="uid://dytp6wwptdqoo" path="res://art/paper/twinkle1a.png" id="1_lostj"]
+[ext_resource type="Texture2D" uid="uid://cwsw5nvhu2yoi" path="res://art/paper/twinkle1b.png" id="2_fe5k8"]
+[ext_resource type="Texture2D" uid="uid://dtolhishys56g" path="res://art/paper/twinkle2a.png" id="3_8s4ev"]
+[ext_resource type="Texture2D" uid="uid://bglmh12mqcqj" path="res://art/paper/twinkle2b.png" id="4_av0n8"]
+[ext_resource type="Texture2D" uid="uid://pvtn37mlpmsg" path="res://art/paper/twinkle3a.png" id="5_w6752"]
+[ext_resource type="Texture2D" uid="uid://cj21y1abya7lh" path="res://art/paper/twinkle3b.png" id="6_so848"]
+[ext_resource type="Texture2D" uid="uid://bcum8vvp4cu4p" path="res://art/old/shooting_star1.png" id="7_vy5o1"]
+[ext_resource type="Texture2D" uid="uid://cu8bgtbpmmrpj" path="res://art/old/shooting_star2.png" id="8_tltsr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dejyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lostj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fe5k8")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8s4ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_av0n8")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_w6752")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_so848")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vy5o1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tltsr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6247o"]
+
+[node name="Twinkle" type="Area2D"]
+script = ExtResource("1_ji2v5")
+grav = 0.97
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.242424, 0.25)
+sprite_frames = SubResource("SpriteFrames_dejyd")
+animation = &"1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6247o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

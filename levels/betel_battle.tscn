@@ -1,17 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgb4ya21oaa5l"]
+[gd_scene load_steps=10 format=3 uid="uid://cgb4ya21oaa5l"]
 
 [ext_resource type="PackedScene" uid="uid://b1yc1xt8x0lai" path="res://ui/background.tscn" id="1_1bmlp"]
 [ext_resource type="Script" path="res://levels/betel_battle.gd" id="1_27qpm"]
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="2_3nkqo"]
 [ext_resource type="PackedScene" uid="uid://b6crpoalhly3g" path="res://enemies/betel/solar_flare.tscn" id="2_gmpk7"]
+[ext_resource type="PackedScene" uid="uid://b1yc1aoo6m4dj" path="res://enemies/betel/twinkle.tscn" id="3_7eosy"]
 [ext_resource type="PackedScene" uid="uid://bfekoufulm8oc" path="res://ui/stats_ui.tscn" id="3_h6oxm"]
 [ext_resource type="PackedScene" uid="uid://bobdc5c764hwy" path="res://player/laser.tscn" id="3_itrpm"]
 [ext_resource type="PackedScene" uid="uid://vfogplvhc6rr" path="res://enemies/betel/betelgeuse.tscn" id="4_soi62"]
+[ext_resource type="PackedScene" uid="uid://i80tol53jjq0" path="res://ui/replay.tscn" id="9_rpcrd"]
 
 [node name="BetelBattle" type="Node2D"]
 script = ExtResource("1_27qpm")
 solar_flare = ExtResource("2_gmpk7")
+twinkle = ExtResource("3_7eosy")
 laser_scene = ExtResource("3_itrpm")
+
+[node name="SolarFlareTimer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
 
 [node name="Background" parent="." instance=ExtResource("1_1bmlp")]
 position = Vector2(576, 323)
@@ -25,3 +32,6 @@ collision_mask = 16
 can_dash = true
 
 [node name="StatsUI" parent="." instance=ExtResource("3_h6oxm")]
+
+[node name="Replay" parent="." instance=ExtResource("9_rpcrd")]
+visible = false

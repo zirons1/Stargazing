@@ -3,14 +3,17 @@ extends Node2D
 @export var shooting_star: PackedScene
 @export var laser_scene: PackedScene
 
-@onready var player: CharacterBody2D = $Player
+@onready var player: Player = $Player
 @onready var sun: Sun = $Sun
+@onready var replay: AnimatedSprite2D = $Replay
 
 @onready var stats_ui: StatsUI = $StatsUI
 
 const SHOOTING_STAR_SPEED : int = -8
 
 var flip : int = 1
+
+var stop := false
 
 func _ready() -> void:
 	Events.health_zero.connect(game_over)
@@ -20,6 +23,9 @@ func _ready() -> void:
 	sun.timer.timeout.connect(shoot_star)
 
 func shoot_star() -> void:
+	if stop:
+		return
+	
 	var star = shooting_star.instantiate()
 
 	var x := randi_range(48, 600)
@@ -71,6 +77,9 @@ func shoot_star() -> void:
 			add_child(star3)
 
 func _input(event: InputEvent) -> void:
+	if stop:
+		return
+	
 	if event.is_action_pressed("space"):
 		var laser := laser_scene.instantiate()
 
@@ -82,8 +91,12 @@ func _input(event: InputEvent) -> void:
 
 func game_over() -> void:
 	print("game over")
-	get_tree().paused = true
+	stop = true
+	player.disabled = true
+	replay.show()
 
 func victory() -> void:
 	print("victory")
-	get_tree().paused = true
+	stop = true
+	player.disabled = true
+	replay.show()

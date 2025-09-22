@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bd236ln6yyyrb"]
+[gd_scene load_steps=26 format=3 uid="uid://bd236ln6yyyrb"]
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_f31ml"]
 [ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="1_kb722"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://daqs1xoepx7u0" path="res://art/paper/play2.png" id="13_h87dm"]
 [ext_resource type="Texture2D" uid="uid://d5olrdng5dce" path="res://art/paper/play_bw1.png" id="13_lajiy"]
 [ext_resource type="Texture2D" uid="uid://d0kui7ngkelqw" path="res://art/paper/play_bw2.png" id="14_37fki"]
+[ext_resource type="Texture2D" uid="uid://df0mxdc5c05j7" path="res://art/paper/speech1.png" id="17_8g747"]
+[ext_resource type="Texture2D" uid="uid://o1aqqcgmw4yf" path="res://art/paper/speech2.png" id="18_k5od3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iyc4p"]
 animations = [{
@@ -100,6 +102,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fbor"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_8g747")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_k5od3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Title" type="Node2D"]
 script = ExtResource("1_f31ml")
 menu = ExtResource("2_i4hde")
@@ -147,5 +163,10 @@ position = Vector2(319, 432)
 scale = Vector2(0.622026, 0.622026)
 sprite_frames = SubResource("SpriteFrames_en3xv")
 animation = &"bw"
+
+[node name="Speech" type="AnimatedSprite2D" parent="."]
+position = Vector2(727, 428)
+scale = Vector2(0.296512, 0.296512)
+sprite_frames = SubResource("SpriteFrames_6fbor")
 
 [connection signal="gui_input" from="Play" to="." method="_on_play_gui_input"]

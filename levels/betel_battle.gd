@@ -1,35 +1,70 @@
 extends Node2D
 
 @export var solar_flare: PackedScene
+@export var twinkle: PackedScene
 @export var laser_scene: PackedScene
 
 @onready var player: CharacterBody2D = $Player
 @onready var betelgeuse: Betel = $Betelgeuse
+@onready var replay: AnimatedSprite2D = $Replay
+
+@onready var solar_flare_timer: Timer = $SolarFlareTimer
 
 @onready var stats_ui: StatsUI = $StatsUI
 
-const SHOOTING_STAR_SPEED : int = -8
+var stop := false
+
+const SOLAR_FLARE_SPEED : int = -12
+const TWINKLE_SPEED : int = -18
+
+var solar_attack := true
 
 var flip : int = 1
+
+var flares := []
+
+var pos_arr := [100, 250, 400, 550]
+
+var mist_pos := [150, 350, 550]
 
 func _ready() -> void:
 	Events.health_zero.connect(game_over)
 	Events.star_dead.connect(victory)
 	stats_ui.set_enemy_max(betelgeuse.health)
 	stats_ui.set_health_sprite(1)
-	betelgeuse.timer.timeout.connect(shoot_star)
+	solar_flare_timer.timeout.connect(shoot_star)
 
 func shoot_star() -> void:
-	var flare = solar_flare.instantiate()
+	if stop:
+		return
+	
+	if flares.is_empty():
+		pos_arr.shuffle()
+		for i in range(3):
+			var flare = solar_flare.instantiate()
+			var vector := Vector2(1000, pos_arr[i])
+			flare.position = vector
+			flare.velocity = Vector2(SOLAR_FLARE_SPEED, 0)
+			
+			flares.append(flare)
 
-	var x := randi_range(48, 600)
-	var vector := Vector2(1000, x)
-	flare.position = vector
-	flare.velocity = Vector2(SHOOTING_STAR_SPEED, 0)
-
-	add_child(flare)
+	var curr_flare : SolarFlare = flares.pop_front()
+	for i in range(4):
+		var twinkle : Twinkle = twinkle.instantiate()
+		var vector := Vector2(1000, curr_flare.position.y)
+		twinkle.position = vector
+		twinkle.velocity = Vector2(TWINKLE_SPEED + randi_range(-5, 5), randf_range(-7, 7))
+		
+		add_child(twinkle)
+		
+		var phase := randi_range(1, 3)
+		twinkle.start(phase)
+	add_child(curr_flare)
 
 func _input(event: InputEvent) -> void:
+	if stop:
+		return
+	
 	if event.is_action_pressed("space"):
 		var laser := laser_scene.instantiate()
 
@@ -41,8 +76,12 @@ func _input(event: InputEvent) -> void:
 
 func game_over() -> void:
 	print("game over")
-	get_tree().paused = true
+	stop = true
+	player.disabled = true
+	replay.show()
 
 func victory() -> void:
 	print("victory")
-	get_tree().paused = true
+	stop = true
+	player.disabled = true
+	replay.show()

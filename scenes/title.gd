@@ -7,6 +7,7 @@ extends Node2D
 @onready var betel: AnimatedSprite2D = $Betel
 @onready var crab: AnimatedSprite2D = $Crab
 @onready var play_sprite: AnimatedSprite2D = $PlaySprite
+@onready var speech: AnimatedSprite2D = $Speech
 
 func _ready() -> void:
 	title.play()
@@ -14,6 +15,7 @@ func _ready() -> void:
 	betel.play()
 	crab.play()
 	play_sprite.play("bw")
+	speech.play()
 
 func _on_play_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):
