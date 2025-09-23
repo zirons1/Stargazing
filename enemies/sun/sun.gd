@@ -28,4 +28,4 @@ func move() -> void:
 	sun_block.show()
 	
 	var tween := create_tween()
-	tween.tween_property(self, "position", Vector2.LEFT * 1200, 2.0)
+	tween.tween_property(self, "position", Vector2.LEFT * 2200, 2.0)

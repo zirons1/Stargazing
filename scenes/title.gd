@@ -17,9 +17,9 @@ func _ready() -> void:
 	betel.play()
 	crab.play()
 	play_sprite.play("bw")
-	speech.play()
-	credits_z.play()
-	credits_b.play()
+	#speech.play()
+	#credits_z.play()
+	#credits_b.play()
 
 func _on_play_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):
