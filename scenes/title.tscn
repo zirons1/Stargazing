@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bd236ln6yyyrb"]
+[gd_scene load_steps=32 format=3 uid="uid://bd236ln6yyyrb"]
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_f31ml"]
 [ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="1_kb722"]
@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://d0kui7ngkelqw" path="res://art/paper/play_bw2.png" id="14_37fki"]
 [ext_resource type="Texture2D" uid="uid://df0mxdc5c05j7" path="res://art/paper/speech1.png" id="17_8g747"]
 [ext_resource type="Texture2D" uid="uid://o1aqqcgmw4yf" path="res://art/paper/speech2.png" id="18_k5od3"]
+[ext_resource type="Texture2D" uid="uid://xmmd2cl3h0h" path="res://art/paper/credits1.png" id="19_jsdyn"]
+[ext_resource type="Texture2D" uid="uid://bvmsipa158ctw" path="res://art/paper/credits2.png" id="20_gqtt5"]
+[ext_resource type="Texture2D" uid="uid://dvjmnbqaprio2" path="res://art/paper/credits3.png" id="21_sey75"]
+[ext_resource type="Texture2D" uid="uid://cr0tp1aqxcof3" path="res://art/paper/credits4.png" id="22_eb3yh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iyc4p"]
 animations = [{
@@ -116,6 +120,34 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0v1e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_jsdyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gqtt5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rket8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_sey75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_eb3yh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Title" type="Node2D"]
 script = ExtResource("1_f31ml")
 menu = ExtResource("2_i4hde")
@@ -168,5 +200,17 @@ animation = &"bw"
 position = Vector2(727, 428)
 scale = Vector2(0.296512, 0.296512)
 sprite_frames = SubResource("SpriteFrames_6fbor")
+
+[node name="CreditsZ" type="AnimatedSprite2D" parent="."]
+position = Vector2(169, 567)
+scale = Vector2(0.363636, 0.363636)
+sprite_frames = SubResource("SpriteFrames_v0v1e")
+frame = 1
+frame_progress = 0.138889
+
+[node name="CreditsB" type="AnimatedSprite2D" parent="."]
+position = Vector2(196, 616)
+scale = Vector2(0.363636, 0.363636)
+sprite_frames = SubResource("SpriteFrames_rket8")
 
 [connection signal="gui_input" from="Play" to="." method="_on_play_gui_input"]

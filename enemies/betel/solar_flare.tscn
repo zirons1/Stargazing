@@ -31,7 +31,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="SolarFlare" type="Area2D"]
+[node name="SolarFlare" type="Area2D" groups=["attacks"]]
 collision_layer = 0
 script = ExtResource("1_u3d1s")
 

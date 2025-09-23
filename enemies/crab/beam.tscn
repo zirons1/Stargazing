@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1e3e5m4u5c53"]
+
+[ext_resource type="Script" path="res://enemies/crab/beam.gd" id="1_j2t33"]
+[ext_resource type="Texture2D" uid="uid://d03tuyiu0hvrs" path="res://art/paper/pulsew.png" id="2_1qmcj"]
+[ext_resource type="Texture2D" uid="uid://ccpu26sjh7eu7" path="res://art/paper/pulsew2.png" id="3_bol8m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lnfjh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1qmcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bol8m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujvik"]
+size = Vector2(1276, 44)
+
+[node name="Beam" type="Area2D"]
+script = ExtResource("1_j2t33")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-640, 0)
+scale = Vector2(0.775, 0.4)
+sprite_frames = SubResource("SpriteFrames_lnfjh")
+frame_progress = 0.0054626
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-641, 0)
+shape = SubResource("RectangleShape2D_ujvik")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

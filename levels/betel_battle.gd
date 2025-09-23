@@ -79,9 +79,15 @@ func game_over() -> void:
 	stop = true
 	player.disabled = true
 	replay.show()
+	
+	for attack in get_tree().get_nodes_in_group("attacks"):
+		attack.queue_free()
 
 func victory() -> void:
 	print("victory")
 	stop = true
 	player.disabled = true
 	replay.show()
+	
+	for attack in get_tree().get_nodes_in_group("attacks"):
+		attack.queue_free()

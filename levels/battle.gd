@@ -6,6 +6,7 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var sun: Sun = $Sun
 @onready var replay: AnimatedSprite2D = $Replay
+@onready var sun_block: AnimatedSprite2D = $SunBlock
 
 @onready var stats_ui: StatsUI = $StatsUI
 
@@ -94,9 +95,20 @@ func game_over() -> void:
 	stop = true
 	player.disabled = true
 	replay.show()
+	
+	for attack in get_tree().get_nodes_in_group("attacks"):
+		attack.queue_free()
 
 func victory() -> void:
 	print("victory")
 	stop = true
 	player.disabled = true
 	replay.show()
+	
+	for attack in get_tree().get_nodes_in_group("attacks"):
+		attack.queue_free()
+
+func win_animation() -> void:
+	sun.scale *= 1.2
+	sun_block.show()
+	

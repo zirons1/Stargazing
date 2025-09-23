@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmerkhi3i8suv"]
+[gd_scene load_steps=11 format=3 uid="uid://dmerkhi3i8suv"]
 
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="1_b1kuy"]
 [ext_resource type="Script" path="res://levels/battle.gd" id="1_m0edu"]
@@ -7,7 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://b1yc1xt8x0lai" path="res://ui/background.tscn" id="4_b1lsa"]
 [ext_resource type="PackedScene" uid="uid://bfekoufulm8oc" path="res://ui/stats_ui.tscn" id="7_y8y0n"]
 [ext_resource type="PackedScene" uid="uid://i80tol53jjq0" path="res://ui/replay.tscn" id="8_fb05r"]
+[ext_resource type="Texture2D" uid="uid://dr5tpk54usr81" path="res://art/paper/sun_block.png" id="9_w2wrh"]
 [ext_resource type="PackedScene" uid="uid://dksi14b5vihqv" path="res://enemies/sun/sun.tscn" id="10_r1il5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1hj7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_w2wrh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_m0edu")
@@ -29,3 +41,9 @@ can_dash = true
 
 [node name="Replay" parent="." instance=ExtResource("8_fb05r")]
 visible = false
+
+[node name="SunBlock" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1761, 315)
+scale = Vector2(0.322074, 0.322074)
+sprite_frames = SubResource("SpriteFrames_1hj7g")

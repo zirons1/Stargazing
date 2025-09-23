@@ -8,6 +8,8 @@ extends Node2D
 @onready var crab: AnimatedSprite2D = $Crab
 @onready var play_sprite: AnimatedSprite2D = $PlaySprite
 @onready var speech: AnimatedSprite2D = $Speech
+@onready var credits_z: AnimatedSprite2D = $CreditsZ
+@onready var credits_b: AnimatedSprite2D = $CreditsB
 
 func _ready() -> void:
 	title.play()
@@ -16,6 +18,8 @@ func _ready() -> void:
 	crab.play()
 	play_sprite.play("bw")
 	speech.play()
+	credits_z.play()
+	credits_b.play()
 
 func _on_play_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):

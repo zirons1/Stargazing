@@ -34,7 +34,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_co56y"]
 radius = 18.0
 
-[node name="ShootingStar" type="Area2D"]
+[node name="ShootingStar" type="Area2D" groups=["attacks"]]
 collision_layer = 0
 script = ExtResource("1_i76lm")
 

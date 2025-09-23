@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://i80tol53jjq0"]
+[gd_scene load_steps=6 format=3 uid="uid://i80tol53jjq0"]
 
 [ext_resource type="Texture2D" uid="uid://ws8lrprtf08p" path="res://art/paper/replay1.png" id="1_s45kg"]
 [ext_resource type="Texture2D" uid="uid://dect6valkvo4e" path="res://art/paper/replay2.png" id="2_ecybt"]
 [ext_resource type="Script" path="res://ui/replay.gd" id="3_2ijn8"]
-[ext_resource type="PackedScene" uid="uid://cwx4wns5sdujl" path="res://scenes/menu.tscn" id="4_yicue"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_88hic"]
 animations = [{
@@ -26,7 +25,7 @@ position = Vector2(578, 338)
 scale = Vector2(0.543601, 0.543601)
 sprite_frames = SubResource("SpriteFrames_88hic")
 script = ExtResource("3_2ijn8")
-menu_scene = ExtResource("4_yicue")
+path_to_menu_scene = "res://scenes/menu.tscn"
 
 [node name="Again" type="Panel" parent="."]
 offset_left = -182.0

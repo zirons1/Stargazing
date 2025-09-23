@@ -59,7 +59,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6247o"]
 
-[node name="Twinkle" type="Area2D"]
+[node name="Twinkle" type="Area2D" groups=["attacks"]]
 script = ExtResource("1_ji2v5")
 grav = 0.97
 
