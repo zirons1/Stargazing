@@ -19,7 +19,7 @@ position = Vector2(576, 323)
 scale = Vector2(0.501447, 0.431613)
 
 [node name="CrabPulsar" parent="." instance=ExtResource("2_n16mm")]
-health = 275
+health = 250
 
 [node name="Player" parent="." instance=ExtResource("3_sxce4")]
 position = Vector2(92, 301)

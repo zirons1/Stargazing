@@ -20,8 +20,10 @@ func _ready() -> void:
 	Events.health_zero.connect(game_over)
 	Events.star_dead.connect(victory)
 	stats_ui.set_enemy_max(sun.health)
-	stats_ui.set_health_sprite(0)
+	stats_ui.set_star_health_name(0)
+	stats_ui.player_health.set_health(Events.player_health)
 	sun.timer.timeout.connect(shoot_star)
+	player.position = Events.player_pos
 
 func shoot_star() -> void:
 	if stop:
@@ -95,6 +97,8 @@ func game_over() -> void:
 	stop = true
 	player.disabled = true
 	replay.show()
+	Events.reset_player_health()
+	Events.reset_player_pos()
 	
 	for attack in get_tree().get_nodes_in_group("attacks"):
 		attack.queue_free()
@@ -104,11 +108,9 @@ func victory() -> void:
 	stop = true
 	player.disabled = true
 	replay.show()
+	Events.player_pos = player.position
 	
 	for attack in get_tree().get_nodes_in_group("attacks"):
 		attack.queue_free()
-
-func win_animation() -> void:
-	sun.scale *= 1.2
-	sun_block.show()
 	
+	sun.move()

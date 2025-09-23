@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dksi14b5vihqv"]
+[gd_scene load_steps=13 format=3 uid="uid://dksi14b5vihqv"]
 
 [ext_resource type="Texture2D" uid="uid://ckjnlrdr4qhbb" path="res://art/old/sun1.png" id="1_m2htp"]
 [ext_resource type="Script" path="res://enemies/sun/sun.gd" id="1_q0xt7"]
 [ext_resource type="Texture2D" uid="uid://bgvsmew55jdui" path="res://art/old/sun2.png" id="2_irfbv"]
 [ext_resource type="Texture2D" uid="uid://ctyqa7eo7m7xb" path="res://art/paper/sun1.png" id="4_8roo1"]
 [ext_resource type="Texture2D" uid="uid://dbkxfnchte4tr" path="res://art/paper/sun2.png" id="5_r3uy7"]
+[ext_resource type="Texture2D" uid="uid://dr5tpk54usr81" path="res://art/paper/sun_block.png" id="6_3cujo"]
+[ext_resource type="Texture2D" uid="uid://c0xiijviq2oy4" path="res://art/paper/sun_block2.png" id="7_0dhbx"]
+[ext_resource type="Script" path="res://enemies/sun/sun_block.gd" id="8_yhuru"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fep58"]
 animations = [{
@@ -32,10 +35,24 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wcc2h"]
-radius = 365.0
+radius = 446.04
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kxaly"]
-radius = 364.012
+radius = 446.018
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2m1du"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_3cujo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0dhbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Sun" type="CharacterBody2D"]
 collision_layer = 8
@@ -49,20 +66,34 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1075, 321)
 rotation = 1.5708
-scale = Vector2(0.320908, 0.2802)
+scale = Vector2(0.374044, 0.2802)
 sprite_frames = SubResource("SpriteFrames_fep58")
 animation = &"paper"
 frame_progress = 0.862391
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1366, 323)
+position = Vector2(1448, 323)
 shape = SubResource("CircleShape2D_wcc2h")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1366, 323)
+position = Vector2(1448, 323)
 shape = SubResource("CircleShape2D_kxaly")
+
+[node name="SunBlock" type="AnimatedSprite2D" parent="."]
+position = Vector2(1474, 327)
+scale = Vector2(0.322074, 0.322074)
+sprite_frames = SubResource("SpriteFrames_2m1du")
+script = ExtResource("8_yhuru")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="SunBlock"]
+position = Vector2(1123.97, -9.31396)
+rotation = 4.71239
+scale = Vector2(1.16136, 0.869986)
+sprite_frames = SubResource("SpriteFrames_fep58")
+animation = &"paper"
+frame_progress = 0.862391
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

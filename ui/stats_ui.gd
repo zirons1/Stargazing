@@ -17,7 +17,7 @@ func set_enemy_max(max : int) -> void:
 	enemy_health.max_health = max
 	enemy_health.reset_to_max()
 
-func set_health_sprite(star : int) -> void:
+func set_star_health_name(star : int) -> void:
 	if curr:
 		curr.stop()
 		curr.hide()
