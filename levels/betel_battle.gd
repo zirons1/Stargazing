@@ -3,6 +3,7 @@ extends Node2D
 @export var solar_flare: PackedScene
 @export var twinkle: PackedScene
 @export var laser_scene: PackedScene
+@export var path_to_crab : String
 
 @onready var player: CharacterBody2D = $Player
 @onready var betelgeuse: Betel = $Betelgeuse
@@ -91,8 +92,13 @@ func victory() -> void:
 	print("victory")
 	stop = true
 	player.disabled = true
-	replay.show()
 	Events.player_pos = player.position
 	
 	for attack in get_tree().get_nodes_in_group("attacks"):
 		attack.queue_free()
+
+	betelgeuse.move()
+	betelgeuse.end_move.connect(transition_to_crab)
+
+func transition_to_crab() -> void:
+	get_tree().change_scene_to_file(path_to_crab)

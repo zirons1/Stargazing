@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciotrq6yyp3pr"]
+[gd_scene load_steps=10 format=3 uid="uid://ciotrq6yyp3pr"]
 
 [ext_resource type="Script" path="res://levels/crab_battle.gd" id="1_afa7i"]
 [ext_resource type="PackedScene" uid="uid://b1yc1xt8x0lai" path="res://ui/background.tscn" id="1_prgtg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://br06upv4ctipu" path="res://enemies/crab/pulse.tscn" id="2_wgu6b"]
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="3_sxce4"]
 [ext_resource type="PackedScene" uid="uid://bobdc5c764hwy" path="res://player/laser.tscn" id="3_ydpll"]
+[ext_resource type="PackedScene" uid="uid://dbymi1f5fb45h" path="res://enemies/crab/spinner.tscn" id="4_hvfjh"]
 [ext_resource type="PackedScene" uid="uid://bfekoufulm8oc" path="res://ui/stats_ui.tscn" id="4_q7pix"]
 [ext_resource type="PackedScene" uid="uid://i80tol53jjq0" path="res://ui/replay.tscn" id="8_rwrax"]
 
@@ -13,13 +14,13 @@
 script = ExtResource("1_afa7i")
 pulse_scene = ExtResource("2_wgu6b")
 laser_scene = ExtResource("3_ydpll")
+spinner_scene = ExtResource("4_hvfjh")
 
 [node name="Background" parent="." instance=ExtResource("1_prgtg")]
 position = Vector2(576, 323)
 scale = Vector2(0.501447, 0.431613)
 
 [node name="CrabPulsar" parent="." instance=ExtResource("2_n16mm")]
-health = 250
 
 [node name="Player" parent="." instance=ExtResource("3_sxce4")]
 position = Vector2(92, 301)
@@ -29,7 +30,7 @@ can_dash = true
 [node name="StatsUI" parent="." instance=ExtResource("4_q7pix")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 autostart = true
 
 [node name="Replay" parent="." instance=ExtResource("8_rwrax")]

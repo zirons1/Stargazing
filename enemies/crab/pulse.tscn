@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://br06upv4ctipu"]
+[gd_scene load_steps=8 format=3 uid="uid://br06upv4ctipu"]
 
 [ext_resource type="Script" path="res://enemies/crab/pulse.gd" id="1_4h1gy"]
 [ext_resource type="Texture2D" uid="uid://rwhtofodg3mf" path="res://art/paper/pulse1.png" id="2_dqabb"]
 [ext_resource type="PackedScene" uid="uid://c1e3e5m4u5c53" path="res://enemies/crab/beam.tscn" id="2_u2jh6"]
 [ext_resource type="Texture2D" uid="uid://cma1775cwuh38" path="res://art/paper/pulse2.png" id="3_6y33b"]
+[ext_resource type="PackedScene" uid="uid://dbymi1f5fb45h" path="res://enemies/crab/spinner.tscn" id="3_eccnf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ok1ei"]
 animations = [{
@@ -26,9 +27,10 @@ size = Vector2(53, 104)
 position = Vector2(287, 183)
 script = ExtResource("1_4h1gy")
 beam_scene = ExtResource("2_u2jh6")
+spinner_scene = ExtResource("3_eccnf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["attacks"]]
-scale = Vector2(0.510345, 0.510345)
+scale = Vector2(0.462069, 0.462069)
 sprite_frames = SubResource("SpriteFrames_ok1ei")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

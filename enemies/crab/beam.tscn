@@ -19,14 +19,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujvik"]
-size = Vector2(1276, 44)
+size = Vector2(1276, 18)
 
 [node name="Beam" type="Area2D"]
 script = ExtResource("1_j2t33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-640, 0)
-scale = Vector2(0.775, 0.4)
+scale = Vector2(0.775, 0.196581)
 sprite_frames = SubResource("SpriteFrames_lnfjh")
 frame_progress = 0.0054626
 

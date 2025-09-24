@@ -3,6 +3,8 @@ extends Node2D
 @export var shooting_star: PackedScene
 @export var laser_scene: PackedScene
 
+@export var path_to_betel : String
+
 @onready var player: Player = $Player
 @onready var sun: Sun = $Sun
 @onready var replay: AnimatedSprite2D = $Replay
@@ -107,10 +109,13 @@ func victory() -> void:
 	print("victory")
 	stop = true
 	player.disabled = true
-	replay.show()
 	Events.player_pos = player.position
 	
 	for attack in get_tree().get_nodes_in_group("attacks"):
 		attack.queue_free()
 	
 	sun.move()
+	sun.end_move.connect(transition_to_betel)
+
+func transition_to_betel() -> void:
+	get_tree().change_scene_to_file(path_to_betel)

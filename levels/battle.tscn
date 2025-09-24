@@ -13,13 +13,14 @@
 script = ExtResource("1_m0edu")
 shooting_star = ExtResource("2_4frnl")
 laser_scene = ExtResource("3_5f2td")
+path_to_betel = "res://levels/betel_battle.tscn"
 
 [node name="Background" parent="." instance=ExtResource("4_b1lsa")]
 position = Vector2(576, 323)
 scale = Vector2(0.501447, 0.431613)
 
 [node name="Sun" parent="." instance=ExtResource("10_r1il5")]
-health = 5
+health = 175
 
 [node name="Player" parent="." instance=ExtResource("1_b1kuy")]
 position = Vector2(92, 301)

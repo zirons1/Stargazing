@@ -1,37 +1,35 @@
+class_name Pulse
 extends Area2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var beam_scene : PackedScene
+@export var spinner_scene : PackedScene
 
-var spin := false
+const SPINNER_SPEED := -12
 
-var curr_beam
+var do_beam := true
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animated_sprite_2d.play()
-	countdown()
+	
+	if do_beam:
+		get_tree().create_timer(1.0).timeout.connect(beam_up)
+	else:
+		get_tree().create_timer(2.0).timeout.connect(
+			func():
+			queue_free()
+		)
+		
 
-func countdown() -> void:
+func beam_up() -> void:
+	var beam := beam_scene.instantiate()
+	beam.on_body_entered.connect(_on_body_entered)
+	add_child(beam)
+	
 	get_tree().create_timer(1.0).timeout.connect(
 		func():
-		animated_sprite_2d.stop()
-	)
-	get_tree().create_timer(2.0).timeout.connect(
-		func():
-		animated_sprite_2d.play()
-		var beam := beam_scene.instantiate()
-
-		beam.on_body_entered.connect(_on_body_entered)
-		#beam.position = position
-
-		add_child(beam)
-		curr_beam = beam
-	)
-	get_tree().create_timer(5.0).timeout.connect(
-		func():
-		remove_child(curr_beam)
+		remove_child(beam)
 		queue_free()
 	)
 

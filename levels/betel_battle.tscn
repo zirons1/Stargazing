@@ -15,6 +15,7 @@ script = ExtResource("1_27qpm")
 solar_flare = ExtResource("2_gmpk7")
 twinkle = ExtResource("3_7eosy")
 laser_scene = ExtResource("3_itrpm")
+path_to_crab = "res://levels/crab_battle.tscn"
 
 [node name="SolarFlareTimer" type="Timer" parent="."]
 wait_time = 1.2

@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbymi1f5fb45h"]
+
+[ext_resource type="Script" path="res://enemies/crab/spinner.gd" id="1_jtxgn"]
+[ext_resource type="Texture2D" uid="uid://bobjeavjnk4bn" path="res://art/paper/spinner1.png" id="2_ii3x6"]
+[ext_resource type="Texture2D" uid="uid://ccn6iihm4joq4" path="res://art/paper/spinner2.png" id="3_bwvjo"]
+[ext_resource type="Texture2D" uid="uid://dulhqs38b3syj" path="res://art/paper/spinner3.png" id="4_cg1o8"]
+[ext_resource type="Texture2D" uid="uid://26013r5cbk30" path="res://art/paper/spinner4.png" id="5_epo6s"]
+[ext_resource type="Texture2D" uid="uid://c8vvsekstap1v" path="res://art/paper/spinner5.png" id="6_i3qy2"]
+[ext_resource type="Texture2D" uid="uid://brgjjf6xtmpcr" path="res://art/paper/spinner6.png" id="7_yif4g"]
+[ext_resource type="Texture2D" uid="uid://bii260h8qja33" path="res://art/paper/spinner7.png" id="8_skotj"]
+[ext_resource type="Texture2D" uid="uid://d3edafvog2tgs" path="res://art/paper/spinner8.png" id="9_mnvcb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4hjj5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ii3x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bwvjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cg1o8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_epo6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i3qy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yif4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_skotj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mnvcb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xkt2"]
+radius = 18.0278
+
+[node name="Spinner" type="Area2D" groups=["attacks"]]
+script = ExtResource("1_jtxgn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.188679, 0.188679)
+sprite_frames = SubResource("SpriteFrames_4hjj5")
+frame_progress = 0.278504
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0xkt2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,6 +1,8 @@
 class_name Sun
 extends CharacterBody2D
 
+signal end_move
+
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var collision_shape_2d2: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var sun_block: AnimatedSprite2D = $SunBlock
@@ -28,4 +30,5 @@ func move() -> void:
 	sun_block.show()
 	
 	var tween := create_tween()
-	tween.tween_property(self, "position", Vector2.LEFT * 2200, 2.0)
+	tween.tween_property(self, "position", Vector2.LEFT * 2500, 2.0)
+	tween.finished.connect(func(): end_move.emit())

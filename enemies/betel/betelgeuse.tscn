@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://vfogplvhc6rr"]
+[gd_scene load_steps=13 format=3 uid="uid://vfogplvhc6rr"]
 
 [ext_resource type="Script" path="res://enemies/betel/betelgeuse.gd" id="1_a5t1h"]
 [ext_resource type="Texture2D" uid="uid://ckjnlrdr4qhbb" path="res://art/old/sun1.png" id="1_nnpuy"]
 [ext_resource type="Texture2D" uid="uid://bgvsmew55jdui" path="res://art/old/sun2.png" id="2_c4kk3"]
 [ext_resource type="Texture2D" uid="uid://ob7swnrnsdem" path="res://art/paper/betel1.png" id="3_vbc5n"]
 [ext_resource type="Texture2D" uid="uid://da1lycjwpunnf" path="res://art/paper/betel2.png" id="4_m6egi"]
+[ext_resource type="Texture2D" uid="uid://b456kekjouo5t" path="res://art/paper/betel_block2.png" id="6_0wt4n"]
+[ext_resource type="Texture2D" uid="uid://chxmayqdd655b" path="res://art/paper/betel_block.png" id="7_h0xx5"]
+[ext_resource type="Script" path="res://enemies/sun/sun_block.gd" id="8_c1q54"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qwous"]
 animations = [{
@@ -37,6 +40,20 @@ radius = 569.008
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0lmq"]
 radius = 571.022
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3283"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_0wt4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h0xx5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Betelgeuse" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_a5t1h")
@@ -44,7 +61,7 @@ health = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1063, 326)
-scale = Vector2(0.35, 0.305)
+scale = Vector2(0.35, 0.338605)
 sprite_frames = SubResource("SpriteFrames_qwous")
 animation = &"paper"
 
@@ -59,5 +76,19 @@ collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1622, 323)
 shape = SubResource("CircleShape2D_r0lmq")
+
+[node name="SunBlock" type="AnimatedSprite2D" parent="."]
+position = Vector2(1573, 336)
+scale = Vector2(0.776592, 0.776592)
+sprite_frames = SubResource("SpriteFrames_y3283")
+frame_progress = 0.697927
+script = ExtResource("8_c1q54")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="SunBlock"]
+position = Vector2(663.153, 5.1507)
+rotation = 3.14159
+scale = Vector2(0.455775, 0.440935)
+sprite_frames = SubResource("SpriteFrames_qwous")
+animation = &"paper"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
