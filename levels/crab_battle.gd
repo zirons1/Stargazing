@@ -12,8 +12,6 @@ extends Node2D
 
 @onready var stats_ui: StatsUI = $StatsUI
 
-@onready var timer: Timer = $Timer
-
 const SPINNER_SPEED : int = -3
 
 var flip : int = 1

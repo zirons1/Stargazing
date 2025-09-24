@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx0xaebg4adaj"]
+
+[ext_resource type="Script" path="res://enemies/sag/sag_a.gd" id="1_qvbld"]
+[ext_resource type="Texture2D" uid="uid://kqbn3pu7ctsh" path="res://art/paper/sag.png" id="2_iv20a"]
+[ext_resource type="Texture2D" uid="uid://bkfacxxykgvhw" path="res://art/paper/sag2.png" id="3_5coka"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjm88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iv20a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5coka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpxws"]
+size = Vector2(1247, 662)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5quw"]
+size = Vector2(1248, 665)
+
+[node name="SagA" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_qvbld")
+health = 25
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1242, 323)
+scale = Vector2(0.316113, 0.275782)
+sprite_frames = SubResource("SpriteFrames_gjm88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1704.5, 322)
+shape = SubResource("RectangleShape2D_mpxws")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-31, 5)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1734, 317.5)
+shape = SubResource("RectangleShape2D_d5quw")
+
+[node name="AnimatedSprite2D1" type="AnimatedSprite2D" parent="."]
+position = Vector2(1671, 318)
+rotation = 3.14159
+scale = Vector2(0.316113, 0.275782)
+sprite_frames = SubResource("SpriteFrames_gjm88")
+flip_h = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(2072, 319)
+scale = Vector2(0.316113, 0.275782)
+sprite_frames = SubResource("SpriteFrames_gjm88")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

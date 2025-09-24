@@ -29,9 +29,5 @@ can_dash = true
 
 [node name="StatsUI" parent="." instance=ExtResource("4_q7pix")]
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
 [node name="Replay" parent="." instance=ExtResource("8_rwrax")]
 visible = false

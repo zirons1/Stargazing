@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var sun_health_name: AnimatedSprite2D = $SunHealthName
 @onready var betel_health_name: AnimatedSprite2D = $BetelgeuseHealthName
 @onready var crab_health_name: AnimatedSprite2D = $CrabHealthName
+@onready var sag_health_name: AnimatedSprite2D = $SagHealthName
 
 var curr : AnimatedSprite2D
 
@@ -33,3 +34,7 @@ func set_star_health_name(star : int) -> void:
 		crab_health_name.show()
 		crab_health_name.play()
 		curr = crab_health_name
+	elif star == 3:
+		sag_health_name.show()
+		sag_health_name.play()
+		curr = sag_health_name

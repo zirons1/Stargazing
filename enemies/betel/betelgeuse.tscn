@@ -81,7 +81,7 @@ shape = SubResource("CircleShape2D_r0lmq")
 position = Vector2(1573, 336)
 scale = Vector2(0.776592, 0.776592)
 sprite_frames = SubResource("SpriteFrames_y3283")
-frame_progress = 0.697927
+frame_progress = 0.999162
 script = ExtResource("8_c1q54")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="SunBlock"]
