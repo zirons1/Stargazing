@@ -90,6 +90,7 @@ func game_over() -> void:
 
 func victory() -> void:
 	print("victory")
+	stats_ui.hide_curr()
 	stop = true
 	player.disabled = true
 	Events.player_pos = player.position

@@ -107,6 +107,7 @@ func game_over() -> void:
 
 func victory() -> void:
 	print("victory")
+	stats_ui.hide_curr()
 	stop = true
 	player.disabled = true
 	Events.player_pos = player.position
@@ -118,5 +119,4 @@ func victory() -> void:
 	crab_pulsar.end_move.connect(transition_to_sag)
 
 func transition_to_sag() -> void:
-	#get_tree().change_scene_to_file(path_to_sag)
-	replay.show()
+	get_tree().change_scene_to_file(path_to_sag)

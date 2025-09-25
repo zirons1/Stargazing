@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	
 	rotate(0.02)
 	
-	if position.x <= -50:
+	if position.x <= -300:
 		queue_free()
 
 func _on_body_entered(body: Node) -> void:

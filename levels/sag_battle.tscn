@@ -1,17 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtgme2ncv1tkn"]
+[gd_scene load_steps=10 format=3 uid="uid://dtgme2ncv1tkn"]
 
 [ext_resource type="Script" path="res://levels/sag_battle.gd" id="1_hhhv4"]
 [ext_resource type="PackedScene" uid="uid://b1yc1xt8x0lai" path="res://ui/background.tscn" id="1_lrnvj"]
+[ext_resource type="PackedScene" uid="uid://bobdc5c764hwy" path="res://player/laser.tscn" id="2_jla7u"]
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="3_1xy3x"]
+[ext_resource type="PackedScene" uid="uid://dsfy876rfp0j2" path="res://enemies/sag/atom.tscn" id="3_a3gl2"]
 [ext_resource type="PackedScene" uid="uid://bx0xaebg4adaj" path="res://enemies/sag/sag_a.tscn" id="3_mwmmq"]
+[ext_resource type="PackedScene" uid="uid://dhlba8d1p5h8f" path="res://enemies/sag/eyeballs.tscn" id="4_lhwcy"]
 [ext_resource type="PackedScene" uid="uid://bfekoufulm8oc" path="res://ui/stats_ui.tscn" id="4_stbg0"]
 [ext_resource type="PackedScene" uid="uid://i80tol53jjq0" path="res://ui/replay.tscn" id="5_p227a"]
 
 [node name="SagBattle" type="Node2D"]
 script = ExtResource("1_hhhv4")
+laser_scene = ExtResource("2_jla7u")
+atom_scene = ExtResource("3_a3gl2")
+eyeballs_scene = ExtResource("4_lhwcy")
 
 [node name="AtomTimer" type="Timer" parent="."]
-wait_time = 1.2
+wait_time = 1.5
+autostart = true
+
+[node name="CreepTimer" type="Timer" parent="."]
+wait_time = 0.25
 autostart = true
 
 [node name="Background" parent="." instance=ExtResource("1_lrnvj")]

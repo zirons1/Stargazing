@@ -1,7 +1,9 @@
 extends Node2D
 
 @export var laser_scene: PackedScene
-@export var path_to_sag : String
+@export var atom_scene: PackedScene
+
+@export var eyeballs_scene : PackedScene
 
 @onready var player: CharacterBody2D = $Player
 @onready var sag_a: Sag = $SagA
@@ -11,12 +13,19 @@ extends Node2D
 @onready var stats_ui: StatsUI = $StatsUI
 
 @onready var atom_timer: Timer = $AtomTimer
+@onready var creep_timer: Timer = $CreepTimer
 
-const SPINNER_SPEED : int = -3
+const ATOM_SPEED : int = -8
+
+var pos_arr := [100, 250, 400, 550]
+
+var last_pos : int = 0
 
 var flip : int = 1
 
 var stop := false
+
+var curr_sag_health : float
 
 func _ready() -> void:
 	Events.health_zero.connect(game_over)
@@ -24,52 +33,32 @@ func _ready() -> void:
 	stats_ui.set_enemy_max(sag_a.health)
 	stats_ui.set_star_health_name(3)
 	stats_ui.player_health.set_health(Events.player_health)
+	atom_timer.timeout.connect(go_atom)
+	creep_timer.timeout.connect(creep_timeout)
 	player.position = Events.player_pos
+	curr_sag_health = sag_a.health * .9
 
-#func pulsar(pulse_pos : int) -> void:
-	#if stop:
-		#return
-	#
-	#var pulse = pulse_scene.instantiate()
-	#var vector := Vector2(1000, pulse_pos)
-	#pulse.position = vector
-	#var do_beam := randf() > 0.55
-	#pulse.do_beam = do_beam
-	#add_child(pulse)
-	#
-	#if not do_beam:
-		#spinner_out(pulse.position)
-	#
-	#get_tree().create_timer(randf_range(2.5, 4.5)).timeout.connect(func(): pulsar(pulse_pos))
-	#var percent_enemy_health = stats_ui.enemy_health.value / crab_pulsar.health
-	#pulse_position.y += [-50, 50].pick_random()
-	#
-	#if percent_enemy_health  > 0.7:
-		#var spinner := spinner_scene.instantiate()
-		#spinner.position = pulse_position
-		#spinner.velocity = Vector2(SPINNER_SPEED, 0)
-		#get_tree().create_timer(1.0).timeout.connect(
-		#func():
-			#if not stop:
-				#add_child(spinner)
-		#)
-	#else:
-		#var spinner := spinner_scene.instantiate()
-		#spinner.position = pulse_position
-		#spinner.velocity = Vector2(SPINNER_SPEED, 0)
-		#get_tree().create_timer(0.2).timeout.connect(
-		#func():
-			#if not stop:
-				#add_child(spinner)
-		#)
-		#var spinner2 := spinner_scene.instantiate()
-		#spinner2.position = pulse_position
-		#spinner2.velocity = Vector2(SPINNER_SPEED, 0)
-		#get_tree().create_timer(1.3).timeout.connect(
-		#func():
-			#if not stop:
-				#add_child(spinner2)
-		#)
+func creep_timeout() -> void:
+	if stats_ui.enemy_health.value < curr_sag_health:
+		print("Creep_")
+		sag_a.creep()
+		curr_sag_health -= sag_a.health / 10
+
+func go_atom() -> void:
+	if stop:
+		return
+	
+	var atom = atom_scene.instantiate()
+	var index = randi_range(0, 2)
+	var new_pos = pos_arr[index]
+	pos_arr.remove_at(index)
+	if last_pos:
+		pos_arr.append(last_pos)
+	last_pos = new_pos
+	var vector := Vector2(1000, new_pos)
+	atom.position = vector
+	atom.velocity = Vector2(ATOM_SPEED, 0)
+	add_child(atom)
 
 func _input(event: InputEvent) -> void:
 	if stop:
@@ -97,9 +86,10 @@ func game_over() -> void:
 
 func victory() -> void:
 	print("victory")
+	stats_ui.hide()
 	stop = true
-	player.disabled = true
 	Events.player_pos = player.position
+	Events.reset_player_health()
 	
 	for attack in get_tree().get_nodes_in_group("attacks"):
 		attack.queue_free()
@@ -107,7 +97,8 @@ func victory() -> void:
 	sag_a.move()
 	sag_a.end_move.connect(finale)
 
-# TODO
 func finale() -> void:
 	#get_tree().change_scene_to_file(path_to_sag)
-	replay.show()
+	var eye_scene := eyeballs_scene.instantiate()
+	add_child(eye_scene)
+	move_child(player, get_child_count())

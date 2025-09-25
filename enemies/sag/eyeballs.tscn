@@ -1,0 +1,186 @@
+[gd_scene load_steps=17 format=3 uid="uid://dhlba8d1p5h8f"]
+
+[ext_resource type="Texture2D" uid="uid://dq51fdncupafe" path="res://art/paper/end_txt1a.png" id="1_jyeif"]
+[ext_resource type="Script" path="res://enemies/sag/eyeballs.gd" id="1_n2xai"]
+[ext_resource type="Texture2D" uid="uid://bfeeol6kmarng" path="res://art/paper/end_txt1b.png" id="2_1u23c"]
+[ext_resource type="Texture2D" uid="uid://n7n6ykq20s65" path="res://art/paper/end_txt2a.png" id="3_qamui"]
+[ext_resource type="Texture2D" uid="uid://c7lwj5jg724al" path="res://art/paper/end_txt2b.png" id="4_ys8em"]
+[ext_resource type="Texture2D" uid="uid://c66oje6w0cmf5" path="res://art/paper/menu_solo1.png" id="6_aytmw"]
+[ext_resource type="Texture2D" uid="uid://dyewgr3co62qi" path="res://art/paper/menu_solo2.png" id="7_ebasq"]
+[ext_resource type="Texture2D" uid="uid://cbyj81cgqejqt" path="res://art/paper/eye_closed1.png" id="8_537u7"]
+[ext_resource type="Texture2D" uid="uid://consqyvfbrejx" path="res://art/paper/eye_closed2.png" id="9_7jgmw"]
+[ext_resource type="Texture2D" uid="uid://cn058m3q632jf" path="res://art/paper/eye_open1.png" id="10_x4vnq"]
+[ext_resource type="Texture2D" uid="uid://dwdrinu7mecp4" path="res://art/paper/eye_open2.png" id="11_i0yl0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k20at"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_537u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7jgmw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_x4vnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i0yl0")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwd0p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jyeif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1u23c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsh0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qamui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ys8em")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7wnx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_aytmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ebasq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljxaw"]
+
+[node name="Eyeballs" type="Node2D"]
+script = ExtResource("1_n2xai")
+path_to_menu = "res://scenes/menu.tscn"
+
+[node name="Eyes" type="Node2D" parent="."]
+
+[node name="Eye1" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(203, 147)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+frame_progress = 0.0673288
+
+[node name="Eye2" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(455, 117)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Eye3" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(723, 211)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Eye4" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(909, 121)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Eye5" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(297, 295)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Eye6" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(993, 337)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Eye7" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(527, 365)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Eye8" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(209, 481)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Eye9" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(453, 521)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Eye10" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(741, 415)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Eye11" type="AnimatedSprite2D" parent="Eyes"]
+visible = false
+position = Vector2(881, 531)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_k20at")
+
+[node name="Text1" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(817.286, 463)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_kwd0p")
+frame_progress = 0.180518
+
+[node name="Text2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(873.572, 519)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_lsh0w")
+frame_progress = 0.821089
+
+[node name="Menu" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1053, 591)
+scale = Vector2(0.408163, 0.408163)
+sprite_frames = SubResource("SpriteFrames_7wnx1")
+frame_progress = 0.508976
+
+[node name="MenuPanel" type="Panel" parent="."]
+visible = false
+offset_left = 987.0
+offset_top = 552.0
+offset_right = 1121.0
+offset_bottom = 628.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ljxaw")
+
+[connection signal="gui_input" from="MenuPanel" to="." method="_on_menu_panel_gui_input"]

@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsfy876rfp0j2"]
 
-[ext_resource type="Script" path="res://enemies/crab/atom.gd" id="1_2vxdn"]
-[ext_resource type="Texture2D" uid="uid://g82s2niouwrv" path="res://art/paper/atom1.png" id="1_16f0p"]
-[ext_resource type="Texture2D" uid="uid://uycwjm1bqs40" path="res://art/paper/atom2.png" id="2_ndfd5"]
+[ext_resource type="Script" path="res://enemies/sag/atom.gd" id="1_uscny"]
+[ext_resource type="Texture2D" uid="uid://g82s2niouwrv" path="res://art/paper/atom1.png" id="2_2ch6v"]
+[ext_resource type="Texture2D" uid="uid://uycwjm1bqs40" path="res://art/paper/atom2.png" id="3_synn2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4bn0a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_16f0p")
+"texture": ExtResource("2_2ch6v")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ndfd5")
+"texture": ExtResource("3_synn2")
 }],
 "loop": true,
 "name": &"default",
@@ -22,40 +22,46 @@ animations = [{
 radius = 29.1548
 
 [node name="Atom" type="Area2D" groups=["attacks"]]
-script = ExtResource("1_2vxdn")
+script = ExtResource("1_uscny")
 
 [node name="AnimatedSprite2D1" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -200)
-scale = Vector2(0.204, 0.204)
+position = Vector2(0, -175)
+scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_4bn0a")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(-200, 0)
-scale = Vector2(0.204, 0.204)
+position = Vector2(-175, 0)
+scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_4bn0a")
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 200)
-scale = Vector2(0.204, 0.204)
+position = Vector2(0, 175)
+scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_4bn0a")
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
-position = Vector2(200, 0)
-scale = Vector2(0.204, 0.204)
+position = Vector2(175, 0)
+scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_4bn0a")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["attacks"]]
-position = Vector2(0, -200)
+position = Vector2(0, -175)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_yv3c4")
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="." groups=["attacks"]]
-position = Vector2(-200, 0)
+position = Vector2(-175, 0)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_yv3c4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="." groups=["attacks"]]
-position = Vector2(0, 200)
+position = Vector2(0, 175)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_yv3c4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="." groups=["attacks"]]
-position = Vector2(200, 0)
+position = Vector2(175, 0)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_yv3c4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

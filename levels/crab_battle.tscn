@@ -15,6 +15,7 @@ script = ExtResource("1_afa7i")
 pulse_scene = ExtResource("2_wgu6b")
 laser_scene = ExtResource("3_ydpll")
 spinner_scene = ExtResource("4_hvfjh")
+path_to_sag = "res://levels/sag_battle.tscn"
 
 [node name="Background" parent="." instance=ExtResource("1_prgtg")]
 position = Vector2(576, 323)

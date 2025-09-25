@@ -13,6 +13,8 @@ signal end_move
 
 var disabled := false
 
+var tween : Tween
+
 func _ready() -> void:
 	animated_sprite_2d.play()
 	animated_sprite_2d_1.play()
@@ -25,12 +27,20 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	Events.player_hit.emit()
 
 func creep() -> void:
-	var tween := create_tween()
-	tween.tween_property(self, "position", Vector2.LEFT * 100, 2.0)
+	if disabled:
+		return
+	
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property(self, "position:x", position.x - 100, 2.0)
 
 func move() -> void:
 	disabled = true
 	
-	var tween := create_tween()
-	tween.tween_property(self, "position", Vector2.LEFT * 2500, 2.0)
+	if tween:
+		tween.kill()
+		
+	tween = create_tween()
+	tween.tween_property(self, "position", Vector2.LEFT * 2200, 2.0)
 	tween.finished.connect(func(): end_move.emit())

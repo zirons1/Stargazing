@@ -57,7 +57,7 @@ animations = [{
 [node name="Betelgeuse" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_a5t1h")
-health = 200
+health = 60
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1063, 326)
@@ -81,7 +81,7 @@ shape = SubResource("CircleShape2D_r0lmq")
 position = Vector2(1573, 336)
 scale = Vector2(0.776592, 0.776592)
 sprite_frames = SubResource("SpriteFrames_y3283")
-frame_progress = 0.999162
+frame_progress = 0.81559
 script = ExtResource("8_c1q54")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="SunBlock"]

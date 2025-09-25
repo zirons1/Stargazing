@@ -1,17 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://bx0xaebg4adaj"]
+[gd_scene load_steps=9 format=3 uid="uid://bx0xaebg4adaj"]
 
 [ext_resource type="Script" path="res://enemies/sag/sag_a.gd" id="1_qvbld"]
-[ext_resource type="Texture2D" uid="uid://kqbn3pu7ctsh" path="res://art/paper/sag.png" id="2_iv20a"]
+[ext_resource type="Texture2D" uid="uid://buobwgfv4wv4j" path="res://art/paper/sag_block.png" id="2_yy2mi"]
 [ext_resource type="Texture2D" uid="uid://bkfacxxykgvhw" path="res://art/paper/sag2.png" id="3_5coka"]
+[ext_resource type="Texture2D" uid="uid://d4bd30otqnti4" path="res://art/paper/sag_block2.png" id="3_gsqr1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gjm88"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_iv20a")
+"texture": ExtResource("3_5coka")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_5coka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jpsqd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yy2mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gsqr1")
 }],
 "loop": true,
 "name": &"default",
@@ -27,12 +42,29 @@ size = Vector2(1248, 665)
 [node name="SagA" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_qvbld")
-health = 25
+health = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1242, 323)
 scale = Vector2(0.316113, 0.275782)
 sprite_frames = SubResource("SpriteFrames_gjm88")
+
+[node name="AnimatedSprite2D1" type="AnimatedSprite2D" parent="."]
+position = Vector2(1655, 320)
+rotation = -3.14159
+scale = Vector2(0.316113, 0.275782)
+sprite_frames = SubResource("SpriteFrames_gjm88")
+flip_h = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(2056, 321)
+scale = Vector2(0.316113, 0.275782)
+sprite_frames = SubResource("SpriteFrames_gjm88")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(2907.53, 320.463)
+scale = Vector2(0.492348, 0.429531)
+sprite_frames = SubResource("SpriteFrames_jpsqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1704.5, 322)
@@ -45,17 +77,5 @@ collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1734, 317.5)
 shape = SubResource("RectangleShape2D_d5quw")
-
-[node name="AnimatedSprite2D1" type="AnimatedSprite2D" parent="."]
-position = Vector2(1671, 318)
-rotation = 3.14159
-scale = Vector2(0.316113, 0.275782)
-sprite_frames = SubResource("SpriteFrames_gjm88")
-flip_h = true
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(2072, 319)
-scale = Vector2(0.316113, 0.275782)
-sprite_frames = SubResource("SpriteFrames_gjm88")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

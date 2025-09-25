@@ -18,6 +18,10 @@ func set_enemy_max(max : int) -> void:
 	enemy_health.max_health = max
 	enemy_health.reset_to_max()
 
+func hide_curr() -> void:
+	curr.stop()
+	curr.hide()
+
 func set_star_health_name(star : int) -> void:
 	if curr:
 		curr.stop()

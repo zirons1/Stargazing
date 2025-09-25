@@ -1,16 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwx4wns5sdujl"]
+[gd_scene load_steps=21 format=3 uid="uid://cwx4wns5sdujl"]
 
 [ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="1_04a0f"]
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_p1lvd"]
 [ext_resource type="PackedScene" uid="uid://dmerkhi3i8suv" path="res://levels/battle.tscn" id="2_w3as5"]
 [ext_resource type="PackedScene" uid="uid://cgb4ya21oaa5l" path="res://levels/betel_battle.tscn" id="3_5nj37"]
 [ext_resource type="PackedScene" uid="uid://ciotrq6yyp3pr" path="res://levels/crab_battle.tscn" id="4_3vt5a"]
+[ext_resource type="PackedScene" uid="uid://dtgme2ncv1tkn" path="res://levels/sag_battle.tscn" id="5_se4ny"]
 [ext_resource type="Texture2D" uid="uid://bh6q6o5tk450s" path="res://art/paper/sun_menu1.png" id="5_ucy0x"]
 [ext_resource type="Texture2D" uid="uid://uhdpe6h743ug" path="res://art/paper/sun_menu2.png" id="6_70lcm"]
 [ext_resource type="Texture2D" uid="uid://ddwdoayhl54md" path="res://art/paper/betel_menu1.png" id="7_b1rl5"]
 [ext_resource type="Texture2D" uid="uid://dad0rpjt3mk1p" path="res://art/paper/betel_menu2.png" id="8_yv7o7"]
 [ext_resource type="Texture2D" uid="uid://c6awuww8u7nmp" path="res://art/paper/crab_menu1.png" id="9_hp68c"]
 [ext_resource type="Texture2D" uid="uid://bsdodi3fhi37f" path="res://art/paper/crab_menu2.png" id="10_83gxx"]
+[ext_resource type="Texture2D" uid="uid://cbsik0kerdy2n" path="res://art/paper/sag_menu1.png" id="12_si28o"]
+[ext_resource type="Texture2D" uid="uid://b4lyy7jdnic6a" path="res://art/paper/sag_menu2.png" id="13_hfeb6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5phy"]
 
@@ -18,14 +21,14 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ucy0x")
+"texture": ExtResource("6_70lcm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_70lcm")
+"texture": ExtResource("5_ucy0x")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17ynn"]
@@ -41,7 +44,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kdea3"]
@@ -55,7 +58,21 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8m2w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_si28o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hfeb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
 }]
 
 [node name="Menu" type="Node2D"]
@@ -63,6 +80,7 @@ script = ExtResource("1_p1lvd")
 sun_battle = ExtResource("2_w3as5")
 betelguese_battle = ExtResource("3_5nj37")
 crab_battle = ExtResource("4_3vt5a")
+sag_battle = ExtResource("5_se4ny")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(577.868, 324.875)
@@ -70,41 +88,55 @@ scale = Vector2(0.511622, 0.450958)
 texture = ExtResource("1_04a0f")
 
 [node name="TheSun" type="Panel" parent="."]
-offset_left = 161.0
-offset_top = 42.0
-offset_right = 441.0
-offset_bottom = 217.0
+offset_left = 247.0
+offset_top = 5.9611
+offset_right = 527.0
+offset_bottom = 180.961
 theme_override_styles/panel = SubResource("StyleBoxEmpty_l5phy")
 
 [node name="SunMenu" type="AnimatedSprite2D" parent="."]
-position = Vector2(293, 133)
+position = Vector2(379, 96.9611)
 scale = Vector2(0.368376, 0.368376)
 sprite_frames = SubResource("SpriteFrames_nftcm")
 
 [node name="Betelguese" type="Panel" parent="."]
-offset_left = 571.0
-offset_top = 154.0
-offset_right = 1051.0
-offset_bottom = 305.0
+offset_left = 607.0
+offset_top = 174.0
+offset_right = 1087.0
+offset_bottom = 325.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_17ynn")
 
 [node name="BetelMenu" type="AnimatedSprite2D" parent="."]
-position = Vector2(812, 230)
+position = Vector2(848, 250)
 scale = Vector2(0.414894, 0.414894)
 sprite_frames = SubResource("SpriteFrames_dy8k0")
 
 [node name="Crab" type="Panel" parent="."]
-offset_left = 214.0
-offset_top = 324.0
-offset_right = 533.0
-offset_bottom = 542.0
+offset_left = 82.7502
+offset_top = 302.133
+offset_right = 401.75
+offset_bottom = 520.133
 theme_override_styles/panel = SubResource("StyleBoxEmpty_17ynn")
 
 [node name="CrabMenu" type="AnimatedSprite2D" parent="."]
-position = Vector2(374, 438)
+position = Vector2(242.75, 416.133)
 scale = Vector2(0.414894, 0.414894)
 sprite_frames = SubResource("SpriteFrames_kdea3")
+
+[node name="Sag" type="Panel" parent="."]
+offset_left = 611.237
+offset_top = 420.362
+offset_right = 820.237
+offset_bottom = 616.362
+theme_override_styles/panel = SubResource("StyleBoxEmpty_17ynn")
+
+[node name="SagMenu" type="AnimatedSprite2D" parent="."]
+position = Vector2(720.237, 514.362)
+scale = Vector2(0.335354, 0.335354)
+sprite_frames = SubResource("SpriteFrames_p8m2w")
+frame_progress = 0.641817
 
 [connection signal="gui_input" from="TheSun" to="." method="_on_sun_panel_gui_input"]
 [connection signal="gui_input" from="Betelguese" to="." method="_on_betelguese_gui_input"]
 [connection signal="gui_input" from="Crab" to="." method="_on_crab_gui_input"]
+[connection signal="gui_input" from="Sag" to="." method="_on_sag_gui_input"]
