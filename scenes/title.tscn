@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bd236ln6yyyrb"]
+[gd_scene load_steps=35 format=3 uid="uid://bd236ln6yyyrb"]
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_f31ml"]
 [ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="1_kb722"]
@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cep4c8cg63nyn" path="res://art/paper/crab1.png" id="9_xy82h"]
 [ext_resource type="Texture2D" uid="uid://b6kknvgnm6gwe" path="res://art/paper/crab2.png" id="10_bgjng"]
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="11_31veg"]
+[ext_resource type="Texture2D" uid="uid://kqbn3pu7ctsh" path="res://art/paper/sag.png" id="12_indyn"]
 [ext_resource type="Texture2D" uid="uid://dt83hliqv7jxj" path="res://art/paper/play1.png" id="12_isd81"]
+[ext_resource type="Texture2D" uid="uid://bkfacxxykgvhw" path="res://art/paper/sag2.png" id="13_3ajdx"]
 [ext_resource type="Texture2D" uid="uid://daqs1xoepx7u0" path="res://art/paper/play2.png" id="13_h87dm"]
 [ext_resource type="Texture2D" uid="uid://d5olrdng5dce" path="res://art/paper/play_bw1.png" id="13_lajiy"]
 [ext_resource type="Texture2D" uid="uid://d0kui7ngkelqw" path="res://art/paper/play_bw2.png" id="14_37fki"]
@@ -79,6 +81,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ry2a"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_indyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3ajdx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fbor"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_8g747")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_k5od3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bcf1m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_en3xv"]
@@ -100,20 +131,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("13_h87dm")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6fbor"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_8g747")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_k5od3")
 }],
 "loop": true,
 "name": &"default",
@@ -158,48 +175,53 @@ scale = Vector2(0.511622, 0.450958)
 texture = ExtResource("1_kb722")
 
 [node name="Title" type="AnimatedSprite2D" parent="."]
-position = Vector2(425, 199)
-scale = Vector2(0.615838, 0.615838)
+position = Vector2(403, 144)
+scale = Vector2(0.585406, 0.585406)
 sprite_frames = SubResource("SpriteFrames_iyc4p")
 
 [node name="Sun" type="AnimatedSprite2D" parent="."]
-position = Vector2(968.914, 324.635)
+position = Vector2(884.914, 324.635)
 rotation = 1.5708
 scale = Vector2(0.369125, 0.369125)
 sprite_frames = SubResource("SpriteFrames_pkkqr")
 
 [node name="Betel" type="AnimatedSprite2D" parent="."]
-position = Vector2(1018.5, 312.913)
+position = Vector2(934.5, 312.913)
 scale = Vector2(0.340385, 0.340385)
 sprite_frames = SubResource("SpriteFrames_8jkno")
 
 [node name="Crab" type="AnimatedSprite2D" parent="."]
-position = Vector2(1099.75, 309.979)
+position = Vector2(1015.75, 309.979)
 scale = Vector2(0.269358, 0.269358)
 sprite_frames = SubResource("SpriteFrames_1wjc8")
 
+[node name="Sag" type="AnimatedSprite2D" parent="."]
+position = Vector2(1194.5, 322.126)
+scale = Vector2(0.279828, 0.275142)
+sprite_frames = SubResource("SpriteFrames_5ry2a")
+
 [node name="Player" parent="." instance=ExtResource("11_31veg")]
-position = Vector2(629, 548)
-rotation = 5.93412
+position = Vector2(571, 512)
+rotation = -0.349065
 disabled = true
 
+[node name="Speech" type="AnimatedSprite2D" parent="."]
+position = Vector2(669, 392)
+scale = Vector2(0.296512, 0.296512)
+sprite_frames = SubResource("SpriteFrames_6fbor")
+
 [node name="Play" type="Panel" parent="."]
-offset_left = 189.0
-offset_top = 377.0
-offset_right = 449.0
-offset_bottom = 480.0
+offset_left = 197.0
+offset_top = 318.643
+offset_right = 457.0
+offset_bottom = 421.643
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bcf1m")
 
 [node name="PlaySprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(319, 432)
+position = Vector2(327, 373.643)
 scale = Vector2(0.622026, 0.622026)
 sprite_frames = SubResource("SpriteFrames_en3xv")
 animation = &"bw"
-
-[node name="Speech" type="AnimatedSprite2D" parent="."]
-position = Vector2(727, 428)
-scale = Vector2(0.296512, 0.296512)
-sprite_frames = SubResource("SpriteFrames_6fbor")
 
 [node name="CreditsZ" type="AnimatedSprite2D" parent="."]
 position = Vector2(169, 567)

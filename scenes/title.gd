@@ -6,6 +6,8 @@ extends Node2D
 @onready var sun: AnimatedSprite2D = $Sun
 @onready var betel: AnimatedSprite2D = $Betel
 @onready var crab: AnimatedSprite2D = $Crab
+@onready var sag: AnimatedSprite2D = $Sag
+
 @onready var play_sprite: AnimatedSprite2D = $PlaySprite
 @onready var speech: AnimatedSprite2D = $Speech
 @onready var credits_z: AnimatedSprite2D = $CreditsZ
@@ -16,6 +18,7 @@ func _ready() -> void:
 	sun.play()
 	betel.play()
 	crab.play()
+	sag.play()
 	play_sprite.play("bw")
 
 func _on_play_gui_input(event: InputEvent) -> void:
