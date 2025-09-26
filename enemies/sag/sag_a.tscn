@@ -42,7 +42,7 @@ size = Vector2(1248, 665)
 [node name="SagA" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_qvbld")
-health = 100
+health = 225
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1242, 323)

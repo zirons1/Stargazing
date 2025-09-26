@@ -33,6 +33,7 @@ func _ready() -> void:
 	Events.star_dead.connect(victory)
 	stats_ui.set_enemy_max(betelgeuse.health)
 	stats_ui.set_star_health_name(1)
+	Events.heal_health()
 	stats_ui.player_health.set_health(Events.player_health)
 	solar_flare_timer.timeout.connect(shoot_star)
 	player.position = Events.player_pos

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmerkhi3i8suv"]
+[gd_scene load_steps=12 format=3 uid="uid://dmerkhi3i8suv"]
 
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="1_b1kuy"]
 [ext_resource type="Script" path="res://levels/battle.gd" id="1_m0edu"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b1yc1xt8x0lai" path="res://ui/background.tscn" id="4_b1lsa"]
 [ext_resource type="PackedScene" uid="uid://bfekoufulm8oc" path="res://ui/stats_ui.tscn" id="7_y8y0n"]
 [ext_resource type="PackedScene" uid="uid://i80tol53jjq0" path="res://ui/replay.tscn" id="8_fb05r"]
+[ext_resource type="Texture2D" uid="uid://cu2btcfqnb4ry" path="res://art/paper/controls1.png" id="9_qqupk"]
+[ext_resource type="Texture2D" uid="uid://c8l4go4qinoja" path="res://art/paper/controls2.png" id="10_f62xc"]
 [ext_resource type="PackedScene" uid="uid://dksi14b5vihqv" path="res://enemies/sun/sun.tscn" id="10_r1il5"]
+[ext_resource type="Texture2D" uid="uid://v4acmv2isdsg" path="res://art/paper/controls3.png" id="11_8t05i"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_m0edu")
@@ -23,7 +26,7 @@ scale = Vector2(0.501447, 0.431613)
 health = 175
 
 [node name="Player" parent="." instance=ExtResource("1_b1kuy")]
-position = Vector2(92, 301)
+position = Vector2(122, 377)
 collision_mask = 16
 can_dash = true
 
@@ -31,3 +34,21 @@ can_dash = true
 
 [node name="Replay" parent="." instance=ExtResource("8_fb05r")]
 visible = false
+
+[node name="Controls1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(406, 242)
+scale = Vector2(0.433674, 0.433673)
+texture = ExtResource("9_qqupk")
+
+[node name="Controls2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(422, 255)
+scale = Vector2(0.433674, 0.433673)
+texture = ExtResource("10_f62xc")
+
+[node name="Controls3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(419, 259)
+scale = Vector2(0.433674, 0.433673)
+texture = ExtResource("11_8t05i")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnx8qqobenu6d"]
+[gd_scene load_steps=16 format=3 uid="uid://cnx8qqobenu6d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_oj7h7"]
 [ext_resource type="Texture2D" uid="uid://bev3uw6qdt3vm" path="res://art/old/rocket1.png" id="1_q3r7l"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bic6ikeo44j2n" path="res://art/paper/iframe_moon1.png" id="5_g72ff"]
 [ext_resource type="Texture2D" uid="uid://de00c0kgbhyut" path="res://art/paper/moon2.png" id="6_m5xu8"]
 [ext_resource type="Texture2D" uid="uid://e403hsehoyp7" path="res://art/paper/iframes_moon2.png" id="7_g0qi0"]
+[ext_resource type="Texture2D" uid="uid://cu2btcfqnb4ry" path="res://art/paper/controls1.png" id="11_j1np7"]
+[ext_resource type="Texture2D" uid="uid://c8l4go4qinoja" path="res://art/paper/controls2.png" id="12_1wd1l"]
+[ext_resource type="Texture2D" uid="uid://v4acmv2isdsg" path="res://art/paper/controls3.png" id="13_sw0mx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nx2j5"]
 animations = [{
@@ -82,3 +85,21 @@ animation = &"iframes"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(30, 18)
 shape = SubResource("CircleShape2D_oicna")
+
+[node name="Controls1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(277.161, -149.875)
+scale = Vector2(0.433674, 0.433673)
+texture = ExtResource("11_j1np7")
+
+[node name="Controls2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(293.161, -136.875)
+scale = Vector2(0.433674, 0.433673)
+texture = ExtResource("12_1wd1l")
+
+[node name="Controls3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(290.161, -132.875)
+scale = Vector2(0.433674, 0.433673)
+texture = ExtResource("13_sw0mx")

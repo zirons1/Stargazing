@@ -32,6 +32,7 @@ func _ready() -> void:
 	Events.star_dead.connect(victory)
 	stats_ui.set_enemy_max(sag_a.health)
 	stats_ui.set_star_health_name(3)
+	Events.heal_health()
 	stats_ui.player_health.set_health(Events.player_health)
 	atom_timer.timeout.connect(go_atom)
 	creep_timer.timeout.connect(creep_timeout)

@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal player_controls_complete
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var laser_scene : PackedScene
@@ -23,9 +25,33 @@ var iframes := false
 var down_dashing := false
 var up_dashing := false
 
+@onready var controls_1: Sprite2D = $Controls1
+@onready var controls_2: Sprite2D = $Controls2
+@onready var controls_3: Sprite2D = $Controls3
+
+var next := 1
+
+func advance_controls() -> void:
+	next += 1
+	if next == 2:
+		controls_1.hide()
+		controls_2.show()
+	if next == 3:
+		controls_2.hide()
+		controls_3.show()
+	if next == 4:
+		controls_3.hide()
+		player_controls_complete.emit()
+		return
+	get_tree().create_timer(2.5).timeout.connect(advance_controls)
+
 func _ready() -> void:
 	Events.player_hit.connect(_on_player_hit)
 	animated_sprite_2d.play("angry")
+
+func battle_start() -> void:
+	controls_1.show()
+	get_tree().create_timer(2.5).timeout.connect(advance_controls)
 
 func _physics_process(delta: float) -> void:
 	if disabled:

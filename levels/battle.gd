@@ -10,6 +10,12 @@ extends Node2D
 @onready var replay: AnimatedSprite2D = $Replay
 @onready var sun_block: AnimatedSprite2D = $SunBlock
 
+@onready var controls_1: Sprite2D = $Controls1
+@onready var controls_2: Sprite2D = $Controls2
+@onready var controls_3: Sprite2D = $Controls3
+
+var next := 1
+
 @onready var stats_ui: StatsUI = $StatsUI
 
 const SHOOTING_STAR_SPEED : int = -8
@@ -23,9 +29,18 @@ func _ready() -> void:
 	Events.star_dead.connect(victory)
 	stats_ui.set_enemy_max(sun.health)
 	stats_ui.set_star_health_name(0)
+	Events.heal_health()
 	stats_ui.player_health.set_health(Events.player_health)
 	sun.timer.timeout.connect(shoot_star)
 	player.position = Events.player_pos
+	
+	stop = true
+	player.player_controls_complete.connect(release)
+	player.battle_start()
+
+func release() -> void:
+	stop = false
+	sun.timer.start()
 
 func shoot_star() -> void:
 	if stop:

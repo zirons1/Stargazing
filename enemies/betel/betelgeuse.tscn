@@ -57,7 +57,7 @@ animations = [{
 [node name="Betelgeuse" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_a5t1h")
-health = 60
+health = 175
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1063, 326)

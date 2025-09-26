@@ -27,6 +27,7 @@ func _ready() -> void:
 	Events.star_dead.connect(victory)
 	stats_ui.set_enemy_max(crab_pulsar.health)
 	stats_ui.set_star_health_name(2)
+	Events.heal_health()
 	stats_ui.player_health.set_health(Events.player_health)
 	get_tree().create_timer(randf_range(1.5, 2.5)).timeout.connect(func(): pulsar(150))
 	get_tree().create_timer(randf_range(1.5, 2.5)).timeout.connect(func(): pulsar(350))
