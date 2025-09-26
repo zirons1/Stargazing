@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b1yc1xt8x0lai" path="res://ui/background.tscn" id="4_b1lsa"]
 [ext_resource type="PackedScene" uid="uid://bfekoufulm8oc" path="res://ui/stats_ui.tscn" id="7_y8y0n"]
 [ext_resource type="PackedScene" uid="uid://i80tol53jjq0" path="res://ui/replay.tscn" id="8_fb05r"]
-[ext_resource type="Texture2D" uid="uid://cu2btcfqnb4ry" path="res://art/paper/controls1.png" id="9_qqupk"]
-[ext_resource type="Texture2D" uid="uid://c8l4go4qinoja" path="res://art/paper/controls2.png" id="10_f62xc"]
+[ext_resource type="Texture2D" uid="uid://82jwyjcyj55h" path="res://art/paper/controls1.png" id="9_qqupk"]
+[ext_resource type="Texture2D" uid="uid://2ho4piq7ehle" path="res://art/paper/controls2.png" id="10_f62xc"]
 [ext_resource type="PackedScene" uid="uid://dksi14b5vihqv" path="res://enemies/sun/sun.tscn" id="10_r1il5"]
-[ext_resource type="Texture2D" uid="uid://v4acmv2isdsg" path="res://art/paper/controls3.png" id="11_8t05i"]
+[ext_resource type="Texture2D" uid="uid://bqku874fqed08" path="res://art/paper/controls3.png" id="11_8t05i"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_m0edu")

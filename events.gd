@@ -1,5 +1,7 @@
 extends Node
 
+var show_controls_once := true
+
 const PLAYER_MAX_HEALTH := 3
 const PLAYER_START := Vector2(122, 377)
 

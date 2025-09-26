@@ -1,29 +1,30 @@
-[gd_scene load_steps=35 format=3 uid="uid://bd236ln6yyyrb"]
+[gd_scene load_steps=36 format=3 uid="uid://bd236ln6yyyrb"]
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_f31ml"]
-[ext_resource type="Texture2D" uid="uid://ba8genqqi7hqr" path="res://art/paper/background.png" id="1_kb722"]
+[ext_resource type="Texture2D" uid="uid://d2f60ipmk3lee" path="res://art/paper/background.png" id="1_kb722"]
+[ext_resource type="AudioStream" uid="uid://gbfycgooixhy" path="res://music/bleepbloop-loop.mp3" id="2_bisvc"]
 [ext_resource type="PackedScene" uid="uid://cwx4wns5sdujl" path="res://scenes/menu.tscn" id="2_i4hde"]
-[ext_resource type="Texture2D" uid="uid://lvr0m7ylmrw7" path="res://art/paper/title1.png" id="2_tgyk6"]
-[ext_resource type="Texture2D" uid="uid://dllheawwfeh31" path="res://art/paper/title2.png" id="3_10h7a"]
-[ext_resource type="Texture2D" uid="uid://ctyqa7eo7m7xb" path="res://art/paper/sun1.png" id="5_kfirm"]
-[ext_resource type="Texture2D" uid="uid://dbkxfnchte4tr" path="res://art/paper/sun2.png" id="6_agv6w"]
-[ext_resource type="Texture2D" uid="uid://ob7swnrnsdem" path="res://art/paper/betel1.png" id="7_ttqdf"]
-[ext_resource type="Texture2D" uid="uid://da1lycjwpunnf" path="res://art/paper/betel2.png" id="8_s5q58"]
-[ext_resource type="Texture2D" uid="uid://cep4c8cg63nyn" path="res://art/paper/crab1.png" id="9_xy82h"]
-[ext_resource type="Texture2D" uid="uid://b6kknvgnm6gwe" path="res://art/paper/crab2.png" id="10_bgjng"]
+[ext_resource type="Texture2D" uid="uid://dfxa255d2mox1" path="res://art/paper/title1.png" id="2_tgyk6"]
+[ext_resource type="Texture2D" uid="uid://bh7qud71txxk3" path="res://art/paper/title2.png" id="3_10h7a"]
+[ext_resource type="Texture2D" uid="uid://buoprgqv0qwsb" path="res://art/paper/sun1.png" id="5_kfirm"]
+[ext_resource type="Texture2D" uid="uid://ctu45nuce26g1" path="res://art/paper/sun2.png" id="6_agv6w"]
+[ext_resource type="Texture2D" uid="uid://cy362c5aynrle" path="res://art/paper/betel1.png" id="7_ttqdf"]
+[ext_resource type="Texture2D" uid="uid://dbr5abu5hytwk" path="res://art/paper/betel2.png" id="8_s5q58"]
+[ext_resource type="Texture2D" uid="uid://y75s58ll04o4" path="res://art/paper/crab1.png" id="9_xy82h"]
+[ext_resource type="Texture2D" uid="uid://da71rkgglrd0f" path="res://art/paper/crab2.png" id="10_bgjng"]
 [ext_resource type="PackedScene" uid="uid://cnx8qqobenu6d" path="res://player/player.tscn" id="11_31veg"]
-[ext_resource type="Texture2D" uid="uid://kqbn3pu7ctsh" path="res://art/paper/sag.png" id="12_indyn"]
-[ext_resource type="Texture2D" uid="uid://dt83hliqv7jxj" path="res://art/paper/play1.png" id="12_isd81"]
-[ext_resource type="Texture2D" uid="uid://bkfacxxykgvhw" path="res://art/paper/sag2.png" id="13_3ajdx"]
-[ext_resource type="Texture2D" uid="uid://daqs1xoepx7u0" path="res://art/paper/play2.png" id="13_h87dm"]
-[ext_resource type="Texture2D" uid="uid://d5olrdng5dce" path="res://art/paper/play_bw1.png" id="13_lajiy"]
-[ext_resource type="Texture2D" uid="uid://d0kui7ngkelqw" path="res://art/paper/play_bw2.png" id="14_37fki"]
-[ext_resource type="Texture2D" uid="uid://df0mxdc5c05j7" path="res://art/paper/speech1.png" id="17_8g747"]
-[ext_resource type="Texture2D" uid="uid://o1aqqcgmw4yf" path="res://art/paper/speech2.png" id="18_k5od3"]
-[ext_resource type="Texture2D" uid="uid://xmmd2cl3h0h" path="res://art/paper/credits1.png" id="19_jsdyn"]
-[ext_resource type="Texture2D" uid="uid://bvmsipa158ctw" path="res://art/paper/credits2.png" id="20_gqtt5"]
-[ext_resource type="Texture2D" uid="uid://dvjmnbqaprio2" path="res://art/paper/credits3.png" id="21_sey75"]
-[ext_resource type="Texture2D" uid="uid://cr0tp1aqxcof3" path="res://art/paper/credits4.png" id="22_eb3yh"]
+[ext_resource type="Texture2D" uid="uid://m6orf4yjgu4v" path="res://art/paper/sag.png" id="12_indyn"]
+[ext_resource type="Texture2D" uid="uid://dgmwffkttuwkq" path="res://art/paper/play1.png" id="12_isd81"]
+[ext_resource type="Texture2D" uid="uid://dtjsuqfqhysea" path="res://art/paper/sag2.png" id="13_3ajdx"]
+[ext_resource type="Texture2D" uid="uid://dq2r1huu87axg" path="res://art/paper/play2.png" id="13_h87dm"]
+[ext_resource type="Texture2D" uid="uid://bakgiaatl5vdo" path="res://art/paper/play_bw1.png" id="13_lajiy"]
+[ext_resource type="Texture2D" uid="uid://84mciwo6xbjr" path="res://art/paper/play_bw2.png" id="14_37fki"]
+[ext_resource type="Texture2D" uid="uid://c6m6w68fkkxet" path="res://art/paper/speech1.png" id="17_8g747"]
+[ext_resource type="Texture2D" uid="uid://d1x4l5pll7v8e" path="res://art/paper/speech2.png" id="18_k5od3"]
+[ext_resource type="Texture2D" uid="uid://coijempepfrqh" path="res://art/paper/credits1.png" id="19_jsdyn"]
+[ext_resource type="Texture2D" uid="uid://pdkjlhffcfxy" path="res://art/paper/credits2.png" id="20_gqtt5"]
+[ext_resource type="Texture2D" uid="uid://du664vba4u3w" path="res://art/paper/credits3.png" id="21_sey75"]
+[ext_resource type="Texture2D" uid="uid://bx0cmbumcu1nb" path="res://art/paper/credits4.png" id="22_eb3yh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iyc4p"]
 animations = [{
@@ -167,6 +168,7 @@ animations = [{
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_f31ml")
+music = ExtResource("2_bisvc")
 menu = ExtResource("2_i4hde")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -180,7 +182,7 @@ scale = Vector2(0.585406, 0.585406)
 sprite_frames = SubResource("SpriteFrames_iyc4p")
 
 [node name="Sun" type="AnimatedSprite2D" parent="."]
-position = Vector2(884.914, 324.635)
+position = Vector2(884.914, 327.635)
 rotation = 1.5708
 scale = Vector2(0.369125, 0.369125)
 sprite_frames = SubResource("SpriteFrames_pkkqr")

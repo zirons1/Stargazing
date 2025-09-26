@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bx0xaebg4adaj"]
 
 [ext_resource type="Script" path="res://enemies/sag/sag_a.gd" id="1_qvbld"]
-[ext_resource type="Texture2D" uid="uid://buobwgfv4wv4j" path="res://art/paper/sag_block.png" id="2_yy2mi"]
-[ext_resource type="Texture2D" uid="uid://bkfacxxykgvhw" path="res://art/paper/sag2.png" id="3_5coka"]
-[ext_resource type="Texture2D" uid="uid://d4bd30otqnti4" path="res://art/paper/sag_block2.png" id="3_gsqr1"]
+[ext_resource type="Texture2D" uid="uid://bvytutg0q6dgf" path="res://art/paper/sag_block.png" id="2_yy2mi"]
+[ext_resource type="Texture2D" uid="uid://dtjsuqfqhysea" path="res://art/paper/sag2.png" id="3_5coka"]
+[ext_resource type="Texture2D" uid="uid://bm4bti6if71g5" path="res://art/paper/sag_block2.png" id="3_gsqr1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gjm88"]
 animations = [{

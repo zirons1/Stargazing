@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://0nqxvivqtpkt"]
+
+[ext_resource type="AudioStream" uid="uid://ctmo3okqgfgeu" path="res://music/bleepbloop-loop.wav" id="1_imfrp"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_imfrp")
+bus = &"Music"

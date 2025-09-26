@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var music : AudioStream
+
 @export var menu : PackedScene
 
 @onready var title: AnimatedSprite2D = $Title
@@ -20,6 +22,8 @@ func _ready() -> void:
 	crab.play()
 	sag.play()
 	play_sprite.play("bw")
+	
+	MusicPlayer.play()
 
 func _on_play_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):

@@ -34,9 +34,15 @@ func _ready() -> void:
 	sun.timer.timeout.connect(shoot_star)
 	player.position = Events.player_pos
 	
-	stop = true
-	player.player_controls_complete.connect(release)
-	player.battle_start()
+	if Events.show_controls_once:
+		Events.show_controls_once = false
+		
+		stop = true
+		player.player_controls_complete.connect(release)
+		player.battle_start()
+	else:
+		release()
+	
 
 func release() -> void:
 	stop = false
