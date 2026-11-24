@@ -8,8 +8,8 @@ The Moon is tired of stargazing, he's ready to do some star-HATING!
 
 Controls:
 
-WASD or Arrow Keys to move.
-Double tap W/S or ↑/↓ to dash.
-Space/Left Click to shoot.
+- WASD or Arrow Keys to move.
+- Double tap W/S or ↑/↓ to dash.
+- Space/Left Click to shoot.
 
 Throw rocks at stars! Reach heaven through violence!
